@@ -5,6 +5,7 @@ import Main from './pages/Main';
 import Notice from './pages/Notice';
 import Post from './pages/Post';
 import Profile from './pages/Profile';
+import Login from './pages/Login';
 
 import './App.css';
 
@@ -16,6 +17,7 @@ const App: React.FC = () => {
                 <Route path='/notice' element={<Notice />} />
                 <Route path='/post' element={<Post />} />
                 <Route path='/profile' element={<Profile />} />
+                <Route path='/login' element={<Login />} />
             </Routes>
         </div>
     );
