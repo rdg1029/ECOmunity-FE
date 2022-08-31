@@ -1,5 +1,7 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
+import { GlobalStyle } from './styles/global-style';
+
 
 import Main from './pages/Main';
 import Notice from './pages/Notice';
@@ -11,6 +13,8 @@ import './App.css';
 
 const App: React.FC = () => {
     return (
+        <>
+        <GlobalStyle/>
         <div className="App">
             <Routes>
                 <Route path='/' element={<Main />} />
@@ -20,6 +24,7 @@ const App: React.FC = () => {
                 <Route path='/login' element={<Login />} />
             </Routes>
         </div>
+        </>
     );
 }
 
