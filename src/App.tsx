@@ -1,6 +1,7 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { GlobalStyle } from './styles/global-style';
+import GlobalStyle from './styles/GlobalStyle';
+
 
 
 import Main from './pages/Main';
