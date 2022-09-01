@@ -11,6 +11,8 @@ const NavStyle = styled.div`
 `;
 
 const NavMenuStyle = styled.p`
+    margin-left: 50px;
+    display: flex;
     flex-direction: row;
     color: white;
     a { text-decoration: none; color: black; }
@@ -26,8 +28,14 @@ const Nav: React.FC = () => {
                 </h1>
                 <NavMenuStyle>
                     <p><Link to='/profile'>프로필</Link></p>
+                </NavMenuStyle>
+                <NavMenuStyle>
                     <p><Link to='/login'>로그인</Link></p>
+                </NavMenuStyle>
+                <NavMenuStyle>
                     <p><Link to='/notice'>공지</Link></p>
+                </NavMenuStyle>
+                <NavMenuStyle>
                     <p><Link to='/post'>게시판</Link></p>
                 </NavMenuStyle>
             </NavStyle>
