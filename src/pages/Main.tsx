@@ -1,13 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import MainStyle from "../styles/MainStyle";
+import Nav from "./Nav";
 
 const Main: React.FC = () => {
     return (
         <div>
+            <Nav/>
             <h1>Main page</h1>
-            <MainStyle/>
-
             <p><Link to='/profile'>프로필</Link></p>
             <p><Link to='/login'>로그인</Link></p>
             <p><Link to='/notice'>공지</Link></p>
