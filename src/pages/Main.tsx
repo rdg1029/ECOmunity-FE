@@ -7,22 +7,18 @@ import styled from "styled-components";
 const GlobalMainStyle = styled.div`
     width: 100%;
     height: 700px;
-    background-color: blue;
+    background-color: #70cf70;
 `;
 
 const MainLayoutContainer = styled.div`
     display: flex;
     width: 100%;
     height: 700px;
-    background-color: yellow;
+    background-color: #70cf70;
     
 `;
 
-const MainLayoutTitleStyle = styled.div`
-    width: 50%;
-    height: 700px;
-    background-color: green;
-`;
+
 
 const MainLayoutPointStyle = styled.div`
     width: 50%;
@@ -36,9 +32,7 @@ const Main: React.FC = () => {
                 <Nav/>
                 <h1>Main page</h1>
                 <MainLayoutContainer>
-                    <MainLayoutTitleStyle>
                         <Title/>
-                    </MainLayoutTitleStyle>
                     <MainLayoutPointStyle>
                         <MyPoint/>
                     </MainLayoutPointStyle>
