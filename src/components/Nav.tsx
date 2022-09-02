@@ -4,39 +4,40 @@ import styled from "styled-components";
 
 const NavStyle = styled.div`
     display: flex;
-    flex-direction: row;
-    width: 1920px;
-    height: 40px;
-    background-color: grey;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
 `;
 
-const NavMenuStyle = styled.p`
-    margin-left: 50px;
+const NavMenuStyle = styled.div`
+    @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.5/dist/web/static/pretendard.css");
+
     display: flex;
-    flex-direction: row;
-    color: white;
-    a { text-decoration: none; color: black; }
-    a:visited { text-decoration: none; }
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+    
+    
+    p{
+        font-family: 'Pretendard-Bold';
+        font-size: 20px;
+        margin-left : 100px;
+        margin-right: 100px;
+        a { text-decoration: none; color: white; }
+        a:visited { text-decoration: none; }
+    }
+    
 `;
 
 const Nav: React.FC = () => {
     return(
-        <>
+        <> 
             <NavStyle>
-                <h1>
-                    NAV
-                </h1>
                 <NavMenuStyle>
-                    <p><Link to='/profile'>프로필</Link></p>
-                </NavMenuStyle>
-                <NavMenuStyle>
-                    <p><Link to='/login'>로그인</Link></p>
-                </NavMenuStyle>
-                <NavMenuStyle>
-                    <p><Link to='/notice'>공지</Link></p>
-                </NavMenuStyle>
-                <NavMenuStyle>
-                    <p><Link to='/post'>게시판</Link></p>
+                    <NavMenuStyle>
+                        <p><Link to='/profile'>프로필</Link></p>
+                        <p><Link to='/login'>로그인</Link></p>
+                        <p><Link to='/notice'>공지</Link></p>
+                        <p><Link to='/post'>게시판</Link></p>
+                    </NavMenuStyle>
                 </NavMenuStyle>
             </NavStyle>
         
