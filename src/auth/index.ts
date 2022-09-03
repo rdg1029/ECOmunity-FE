@@ -1,8 +1,5 @@
 import {initializeApp, FirebaseOptions } from 'firebase/app';
 import { getAuth } from 'firebase/auth'
-import dotenv from 'dotenv';
-
-dotenv.config();
 
 const firebaseConfig: FirebaseOptions = {
     apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -12,7 +9,6 @@ const firebaseConfig: FirebaseOptions = {
     messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
     appId: process.env.REACT_APP_FIREBASE_APP_ID,
 }
-console.log(firebaseConfig);
 
 const app = initializeApp(firebaseConfig);
 export default getAuth(app);
