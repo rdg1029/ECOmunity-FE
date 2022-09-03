@@ -5,7 +5,7 @@ import auth from '../auth'
 const Login: React.FC = () => {
     function signInGoogle() {
         signInWithPopup(auth, new GoogleAuthProvider()).then(result => {
-            console.log(result);
+            console.log(`로그인 성공: ${result.user.email}`);
         });
     }
 
