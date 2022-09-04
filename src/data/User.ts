@@ -1,41 +1,44 @@
-import { UserCredential } from 'firebase/auth'
+import { UserInfo } from 'firebase/auth'
 
-export interface UserData {
-    name: string | null;
-    email: string | null;
-    photoURL: string | null;
-    uid: string | null;
-}
-class User implements UserData {
+class User implements UserInfo {
     public isSigned: boolean;
-    public name: string | null;
+
+    public displayName: string | null;
+    public phoneNumber: string | null;
     public email: string | null;
     public photoURL: string | null;
-    public uid: string | null;
+    public providerId: string;
+    public uid: string;
     
     constructor() {
         this.isSigned = false;
-        this.name = null;
+
+        this.displayName = null;
+        this.phoneNumber = null;
         this.email = null;
         this.photoURL = null;
-        this.uid = null;
+        this.providerId = "";
+        this.uid = "";
     }
 
-    setLogin(credential: UserCredential) {
-        const user = credential.user;
-        this.name = user.displayName;
-        this.email = user.email;
-        this.photoURL = user.photoURL;
-        this.uid = user.uid;
+    setLogin(userInfo: UserInfo) {
+        this.displayName = userInfo.displayName;
+        this.phoneNumber = userInfo.phoneNumber;
+        this.email = userInfo.email;
+        this.photoURL = userInfo.photoURL;
+        this.providerId = userInfo.providerId;
+        this.uid = userInfo.uid;
 
         this.isSigned = true;
     }
 
     setLogout() {
-        this.name = null;
+        this.displayName = null;
+        this.phoneNumber = null;
         this.email = null;
         this.photoURL = null;
-        this.uid = null
+        this.providerId = "";
+        this.uid = "";
 
         this.isSigned = false;
     }
