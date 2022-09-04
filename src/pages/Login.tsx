@@ -1,11 +1,12 @@
 import React from 'react';
 import { signInWithPopup, GoogleAuthProvider } from 'firebase/auth'
 import auth from '../auth'
+import user from '../data/User';
 
 const Login: React.FC = () => {
     function signInGoogle() {
-        signInWithPopup(auth, new GoogleAuthProvider()).then(result => {
-            console.log(`로그인 성공: ${result.user.email}`);
+        signInWithPopup(auth, new GoogleAuthProvider()).then(userCredential => {
+            user.setLogin(userCredential.user);
         });
     }
 
