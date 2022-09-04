@@ -5,32 +5,32 @@ import MyPoint from "../components/MyPoint";
 import styled from "styled-components";
 
 const GlobalMainStyle = styled.div`
-    width: 100%;
-    height: 700px;
     background-color: #70cf70;
 `;
 
 const MainLayoutContainer = styled.div`
     display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     height: 700px;
     background-color: #70cf70;
     
 `;
 
-
-
 const MainLayoutPointStyle = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 50%;
     height: 700px;
-    background-color: red;
 `;
 
 const Main: React.FC = () => {
     return (
-        <>  <GlobalMainStyle>
+        <>  
+            <GlobalMainStyle>
                 <Nav/>
-                <h1>Main page</h1>
                 <MainLayoutContainer>
                         <Title/>
                     <MainLayoutPointStyle>

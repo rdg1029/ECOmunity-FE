@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-const NavStyle = styled.div`
+const GlobalNavStyle = styled.div`
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-evenly;
@@ -30,7 +30,7 @@ const NavMenuStyle = styled.div`
 const Nav: React.FC = () => {
     return(
         <> 
-            <NavStyle>
+            <GlobalNavStyle>
                 <NavMenuStyle>
                     <NavMenuStyle>
                         <p><Link to='/profile'>프로필</Link></p>
@@ -39,7 +39,7 @@ const Nav: React.FC = () => {
                         <p><Link to='/post'>게시판</Link></p>
                     </NavMenuStyle>
                 </NavMenuStyle>
-            </NavStyle>
+            </GlobalNavStyle>
         
         </>
     );
