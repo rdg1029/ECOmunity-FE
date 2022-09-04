@@ -14,6 +14,7 @@ const Login: React.FC = () => {
     }
 
     function signOutGoogle() {
+        if (!window.confirm('로그아웃 하시겠습니까?')) return;
         signOut(auth).then(() => {
             user.setLogout();
             setSigned(user.isSigned);
