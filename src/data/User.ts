@@ -1,8 +1,6 @@
 import { UserInfo } from 'firebase/auth'
 
 class User implements UserInfo {
-    public isSigned: boolean;
-
     public displayName: string | null;
     public phoneNumber: string | null;
     public email: string | null;
@@ -11,8 +9,6 @@ class User implements UserInfo {
     public uid: string;
     
     constructor() {
-        this.isSigned = false;
-
         this.displayName = null;
         this.phoneNumber = null;
         this.email = null;
@@ -28,8 +24,6 @@ class User implements UserInfo {
         this.photoURL = userInfo.photoURL;
         this.providerId = userInfo.providerId;
         this.uid = userInfo.uid;
-
-        this.isSigned = true;
     }
 
     setLogout() {
@@ -39,8 +33,6 @@ class User implements UserInfo {
         this.photoURL = null;
         this.providerId = "";
         this.uid = "";
-
-        this.isSigned = false;
     }
 }
 
