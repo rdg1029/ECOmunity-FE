@@ -1,15 +1,44 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import Nav from "../components/Nav";
+import Title from "../components/Title";
+import MyPoint from "../components/MyPoint";
+import styled from "styled-components";
+
+const GlobalMainStyle = styled.div`
+    background-color: #70cf70;
+`;
+
+const MainLayoutContainer = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 700px;
+    background-color: #70cf70;
+    
+`;
+
+const MainLayoutPointStyle = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 700px;
+`;
 
 const Main: React.FC = () => {
     return (
-        <div>
-            <h1>Main page</h1>
-            <p><Link to='/profile'>프로필</Link></p>
-            <p><Link to='/login'>로그인</Link></p>
-            <p><Link to='/notice'>공지</Link></p>
-            <p><Link to='/post'>게시판</Link></p>
-        </div>
+        <>  
+            <GlobalMainStyle>
+                <Nav/>
+                <MainLayoutContainer>
+                        <Title/>
+                    <MainLayoutPointStyle>
+                        <MyPoint/>
+                    </MainLayoutPointStyle>
+                </MainLayoutContainer>
+            </GlobalMainStyle>
+        </>
     );
 }
 
