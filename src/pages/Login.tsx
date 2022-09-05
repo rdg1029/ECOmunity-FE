@@ -1,18 +1,25 @@
-import React from 'react';
-import { signInWithPopup, GoogleAuthProvider, signOut, setPersistence, browserSessionPersistence } from 'firebase/auth'
+import React, { useState } from 'react';
+import { signInWithPopup, GoogleAuthProvider, signOut, setPersistence, browserSessionPersistence, onAuthStateChanged } from 'firebase/auth'
 import auth, {signInGoogle, signOutGoogle} from '../auth'
 
 const Login: React.FC = () => {
-    const user = auth.currentUser?.providerData[0];
+    const [isLogin, setLogin] = useState<boolean>();
+    onAuthStateChanged(auth, (user) => {
+        if (user) {
+            setLogin(true);
+            return;
+        }
+        setLogin(false);
+    });
 
     return (
         <div>
-            {auth.currentUser ?
+            {isLogin ?
             <div>
                 <h1>환영합니다!</h1>
-                <img src={user?.photoURL as string}></img>
-                <p>{user?.displayName}</p>
-                <p>{user?.email}</p>
+                <img src={auth.currentUser?.photoURL as string}></img>
+                <p>{auth.currentUser?.displayName}</p>
+                <p>{auth.currentUser?.email}</p>
                 <button onClick={signOutGoogle}>로그아웃</button>
             </div>
             :
