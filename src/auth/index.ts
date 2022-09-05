@@ -1,5 +1,5 @@
 import {initializeApp, FirebaseOptions } from 'firebase/app';
-import { getAuth } from 'firebase/auth'
+import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, setPersistence, browserSessionPersistence } from 'firebase/auth'
 
 const firebaseConfig: FirebaseOptions = {
     apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -11,4 +11,21 @@ const firebaseConfig: FirebaseOptions = {
 }
 
 const app = initializeApp(firebaseConfig);
-export default getAuth(app);
+const auth = getAuth(app);
+
+export default auth;
+
+export function signInGoogle() {
+    setPersistence(auth, browserSessionPersistence).then(() => {
+        signInWithPopup(auth, new GoogleAuthProvider()).then(userCredential => {
+            window.location.replace('/');
+        });
+    });
+}
+
+export function signOutGoogle() {
+    if (!window.confirm('로그아웃 하시겠습니까?')) return;
+    signOut(auth).then(() => {
+        window.location.replace('/');
+    });
+}
