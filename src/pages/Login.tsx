@@ -1,23 +1,24 @@
-import React, { useState } from 'react';
-import { signInWithPopup, GoogleAuthProvider, signOut } from 'firebase/auth'
+import React, { useState, useContext } from 'react';
+import { signInWithPopup, GoogleAuthProvider, signOut, setPersistence, browserSessionPersistence } from 'firebase/auth'
 import auth from '../auth'
-import user from '../data/User';
 
 const Login: React.FC = () => {
-    const [isSigned, setSigned] = useState<boolean>(user.isSigned);
+    const [isSigned, setSigned] = useState<boolean>(auth.currentUser ? true : false);
+    const user = auth.currentUser?.providerData[0];
+    console.log(auth);
 
     function signInGoogle() {
-        signInWithPopup(auth, new GoogleAuthProvider()).then(userCredential => {
-            user.setLogin(userCredential.user);
-            setSigned(user.isSigned);
+        setPersistence(auth, browserSessionPersistence).then(() => {
+            signInWithPopup(auth, new GoogleAuthProvider()).then(userCredential => {
+                setSigned(true);
+            });
         });
     }
 
     function signOutGoogle() {
         if (!window.confirm('로그아웃 하시겠습니까?')) return;
         signOut(auth).then(() => {
-            user.setLogout();
-            setSigned(user.isSigned);
+            setSigned(false);
         });
     }
 
@@ -26,9 +27,9 @@ const Login: React.FC = () => {
             {isSigned ?
             <div>
                 <h1>환영합니다!</h1>
-                <img src={user.photoURL as string}></img>
-                <p>{user.displayName}</p>
-                <p>{user.email}</p>
+                <img src={user?.photoURL as string}></img>
+                <p>{user?.displayName}</p>
+                <p>{user?.email}</p>
                 <button onClick={signOutGoogle}>로그아웃</button>
             </div>
             :
