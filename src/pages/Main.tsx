@@ -3,6 +3,7 @@ import Nav from "../components/Nav";
 import Title from "../components/Title";
 import MyPoint from "../components/MyPoint";
 import styled from "styled-components";
+import Notice from "./Notice";
 
 const GlobalMainStyle = styled.div`
     background-color: #70cf70;
@@ -37,6 +38,7 @@ const Main: React.FC = () => {
                         <MyPoint/>
                     </MainLayoutPointStyle>
                 </MainLayoutContainer>
+                <Notice/>
             </GlobalMainStyle>
         </>
     );
