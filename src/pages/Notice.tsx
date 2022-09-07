@@ -1,9 +1,10 @@
 import React from "react";
 import NoticeDeco from "../components/NoticeDeco";
+import NoticeThumbnail from "../components/NoticeThumbnail";
 
 const companyNum = 3;
 
-const NoticeText: React.FC = () => {
+const NoticeTitle: React.FC = () => {
     return(
         <>
         <h1>환경 보호 캠페인</h1>
@@ -17,7 +18,10 @@ const Notice: React.FC = () => {
         <div>
             <NoticeDeco/>
             <h1>Notice page</h1>
-            <NoticeText/>
+            
+                
+            <NoticeTitle/>
+            <NoticeThumbnail/>
         </div>
     );
 }
