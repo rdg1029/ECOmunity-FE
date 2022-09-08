@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { FormEvent, useEffect, useState } from "react";
+import auth from "../auth";
 import Modal from "./Modal";
 
 interface Props {
@@ -20,7 +21,7 @@ const PostWrite: React.FC<Props> = (props) => {
         }
     }
 
-    const onTextChange: React.ChangeEventHandler<HTMLInputElement> = e => {
+    const onTextChange: React.ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement> = e => {
         switch(e.currentTarget.name) {
             case "postTitle":
                 setTitle(e.currentTarget.value);
@@ -29,6 +30,18 @@ const PostWrite: React.FC<Props> = (props) => {
                 setContent(e.currentTarget.value);
                 break;
         }
+    }
+
+    const onSubmit: React.MouseEventHandler<HTMLButtonElement> = e => {
+        auth.currentUser?.getIdToken().then(idToken => {
+            const postData = {
+                token: idToken,
+                img: image,
+                title: title,
+                content: content,
+            }
+            console.log(postData);
+        });
     }
 
     return (
@@ -41,14 +54,14 @@ const PostWrite: React.FC<Props> = (props) => {
                 <form style={{ display: "flex", flexDirection: "column"}}>
                     <img src={image}></img>
                     <label>사진 업로드 : <input type="file" accept="image/png, image/jpeg" name="postImage" onChange={onImageChange}></input></label> 
-                    <input type="text" placeholder="제목" name="postTitle"></input>
-                    <textarea placeholder="내용" name="postContent"></textarea>
+                    <input type="text" placeholder="제목" name="postTitle" onChange={onTextChange}></input>
+                    <textarea placeholder="내용" name="postContent" onChange={onTextChange}></textarea>
                 </form>
             }
             footer={
                 <>
                     <button onClick={props.onClose}>취소</button>
-                    <button type="submit">작성</button>
+                    <button onClick={onSubmit}>작성</button>
                 </>
             }
             width="60rem"/>
