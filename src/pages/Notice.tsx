@@ -14,9 +14,21 @@ const NoticeGlobalStyle = styled.div`
 
 const NoticeTitleStyle = styled.div`
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     flex-direction: column;
+    flex-basis: auto;
+    z-index: 1;
+
 `;
+/**공지사항 컴포넌트 제목에 대한 스타일 */
+
+const NoticeThumbnailStyle = styled.div`
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex-basis: auto;
+`
 
 const NoticeTitle: React.FC = () => {
     return(
@@ -36,14 +48,16 @@ const Notice: React.FC = () => {
             <NoticeGlobalStyle>
                 
                 <NoticeTitle/> {/**타이틀 컴포 */}
-                <NoticeThumbnail/>{/**썸넬 6개 */}
-                <NoticeThumbnail/>
-                <NoticeThumbnail/>
-                <NoticeThumbnail/>
-                <NoticeThumbnail/>
-                <NoticeThumbnail/>
+                <NoticeThumbnailStyle>
+                    <NoticeThumbnail/>{/**썸넬 6개 */}
+                    <NoticeThumbnail/>
+                    <NoticeThumbnail/>
+                    <NoticeThumbnail/>
+                    <NoticeThumbnail/>
+                    <NoticeThumbnail/>
+                </NoticeThumbnailStyle>
             </NoticeGlobalStyle>
-            <NoticeDeco/> {/**삐딱 사각형 컴포 */}
+            <NoticeDeco/>
         </div>
     );
 }
