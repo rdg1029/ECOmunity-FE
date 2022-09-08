@@ -10,8 +10,21 @@ const NoticeThumbnailStyle = styled.div`
 `;
 
 const NoticeImgStyle = styled.div`
+    width: 200px;
+    height: 100px;
     display: flex;
     flex-direction: column;
+    background-color: red;
+    margin-left: 100px;
+`
+
+const NoticeTxtStyle = styled.div`
+    width: 200px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    background-color: blue;
+    margin-left: 100px;
 `
 const NoticeImg : React.FC = () => {
     return(
@@ -37,7 +50,10 @@ const NoticeThumbnail : React.FC = () => {
             <NoticeImgStyle>
                 <NoticeImg/>
             </NoticeImgStyle>
-            <NoticeTxt/>
+            <NoticeTxtStyle>
+                <NoticeTxt/>
+            </NoticeTxtStyle>
+            
         </NoticeThumbnailStyle>
     );
 }

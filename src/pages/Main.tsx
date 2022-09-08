@@ -8,6 +8,7 @@ import Notice from "./Notice";
 const GlobalMainStyle = styled.div`
     background-color: #70cf70;
 `;
+/**전역 배경 색상 스타일 */
 
 const MainLayoutContainer = styled.div`
     display: flex;
@@ -18,6 +19,7 @@ const MainLayoutContainer = styled.div`
     background-color: #70cf70;
     
 `;
+/**메인 레이아웃 컨테이너*/
 
 const MainLayoutPointStyle = styled.div`
     display: flex;
@@ -26,6 +28,7 @@ const MainLayoutPointStyle = styled.div`
     width: 50%;
     height: 700px;
 `;
+/**포인트 표출 컴포넌트 스타일 */
 
 const Main: React.FC = () => {
     return (
