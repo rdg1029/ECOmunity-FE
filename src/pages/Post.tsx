@@ -8,7 +8,7 @@ const Post: React.FC = () => {
         <div>
             <h1>Post page</h1>
             <button onClick={() => setWriteMode(true)}>작성</button>
-            <PostWrite show={isWriteMode} onClose={() => setWriteMode(false)} onSubmit={() => console.log('submit')}/>
+            <PostWrite show={isWriteMode} onClose={() => setWriteMode(false)}/>
         </div>
     );
 }
