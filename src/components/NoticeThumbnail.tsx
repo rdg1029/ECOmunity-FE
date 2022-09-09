@@ -4,14 +4,16 @@ import styled from "styled-components";
 const NoticeThumbnailStyle = styled.div`
     display: flex;
     flex-direction: column;
+    margin-bottom : 50px;
+    margin-top: 50px;
     z-index: 3;
     
     
 `;
 
 const NoticeImgStyle = styled.div`
-    width: 200px;
-    height: 100px;
+    width: 450px;
+    height: 300px;
     display: flex;
     flex-direction: column;
     background-color: red;
@@ -19,8 +21,8 @@ const NoticeImgStyle = styled.div`
 `
 
 const NoticeTxtStyle = styled.div`
-    width: 200px;
-    height: 100px;
+    width: 450px;
+    height: 50px;
     display: flex;
     flex-direction: column;
     background-color: blue;

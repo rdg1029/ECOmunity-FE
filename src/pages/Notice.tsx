@@ -7,9 +7,11 @@ const companyNum = 3;
 
 const NoticeGlobalStyle = styled.div`
     display: flex;
+    width: 100%;
     position: absolute;
-    flex-direction: column;
+    flex-flow: column;
     justify-content: center;
+    margin-top: 20px;
 ;
     
 `;
@@ -35,7 +37,9 @@ const NoticePStyle = styled.p`
 
 const NoticeThumbnailStyle = styled.div`
     display: flex;
-    flex-direction: row;
+    flex-flow: row, nowrap;
+    align-items: center;
+    justify-content: center;
     
 `
 
@@ -56,6 +60,12 @@ const Notice: React.FC = () => {
         <div>
             <NoticeGlobalStyle>
                 <NoticeTitle/> {/**타이틀 컴포 */}
+                    <NoticeThumbnailStyle>
+                        <NoticeThumbnail/>{/**썸넬 6개 넣어야 함. */}
+                        <NoticeThumbnail/>
+                        <NoticeThumbnail/>
+                    </NoticeThumbnailStyle>
+
                     <NoticeThumbnailStyle>
                         <NoticeThumbnail/>{/**썸넬 6개 넣어야 함. */}
                         <NoticeThumbnail/>
