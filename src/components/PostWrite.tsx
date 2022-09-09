@@ -5,7 +5,6 @@ import Modal from "./Modal";
 
 interface Props {
     show: boolean;
-    onClose: () => void;
 }
 
 const Form = styled.form`
@@ -110,7 +109,7 @@ const PostWrite: React.FC<Props> = (props) => {
             }
             footer={
                 <>
-                    <button onClick={props.onClose}>취소</button>
+                    <button onClick={() => window.location.reload()}>취소</button>
                     <button onClick={onSubmit}>작성</button>
                 </>
             }

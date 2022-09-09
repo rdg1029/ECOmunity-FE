@@ -9,7 +9,7 @@ const Post: React.FC = () => {
         <div>
             <h1>Post page</h1>
             <button onClick={() => auth.currentUser ? setWriteMode(true) : window.alert('로그인이 필요한 서비스입니다.')}>작성</button>
-            <PostWrite show={isWriteMode} onClose={() => setWriteMode(false)}/>
+            <PostWrite show={isWriteMode}/>
         </div>
     );
 }
