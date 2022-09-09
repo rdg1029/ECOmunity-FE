@@ -65,6 +65,10 @@ const PostWrite: React.FC<Props> = (props) => {
         e.preventDefault();
         e.returnValue = '';
     }
+    
+    function preventGoBack() {
+        window.history.pushState(null, "", window.location.href);
+    }
 
     const onImageChange: React.ChangeEventHandler<HTMLInputElement> = e => {
         const imgFile = e.currentTarget.files![0];
@@ -113,10 +117,13 @@ const PostWrite: React.FC<Props> = (props) => {
 
     useEffect(() => {
         if (props.show) {
+            window.history.pushState(null, "", window.location.href);
             window.addEventListener("beforeunload", onBeforeReload);
+            window.addEventListener("popstate", preventGoBack);
         }
         else {
             window.removeEventListener("beforeunload", onBeforeReload);
+            window.removeEventListener("popstate", preventGoBack);
         }
         
     }, [props.show]);
