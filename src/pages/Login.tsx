@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { signInWithPopup, GoogleAuthProvider, signOut, setPersistence, browserSessionPersistence, onAuthStateChanged } from 'firebase/auth'
+import { onAuthStateChanged } from 'firebase/auth'
 import auth, {signInGoogle, signOutGoogle} from '../auth'
 
 const Login: React.FC = () => {
