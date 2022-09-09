@@ -87,6 +87,19 @@ const PostWrite: React.FC<Props> = (props) => {
     }
 
     const onSubmit: React.MouseEventHandler<HTMLButtonElement> = e => {
+        if (!image) {
+            alert('인증 사진 1장을 첨부해주세요!');
+            return;
+        }
+        if (!title) {
+            alert('제목을 작성해주세요!');
+            return;
+        }
+        if (!content) {
+            alert('내용을 입력해주세요!');
+            return;
+        }
+        if (!window.confirm('게시글을 작성하시겠습니까?')) return;
         auth.currentUser?.getIdToken().then(idToken => {
             const postData = {
                 token: idToken,
