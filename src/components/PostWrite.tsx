@@ -1,4 +1,4 @@
-import React, { FormEvent, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import auth from "../auth";
 import Modal from "./Modal";
@@ -61,6 +61,11 @@ const PostWrite: React.FC<Props> = (props) => {
     const [title, setTitle] = useState<string>();
     const [content, setContent] = useState<string>();
 
+    function onBeforeReload(e: BeforeUnloadEvent) {
+        e.preventDefault();
+        e.returnValue = '';
+    }
+
     const onImageChange: React.ChangeEventHandler<HTMLInputElement> = e => {
         const imgFile = e.currentTarget.files![0];
         const reader = new FileReader();
@@ -92,6 +97,16 @@ const PostWrite: React.FC<Props> = (props) => {
             console.log(postData);
         });
     }
+
+    useEffect(() => {
+        if (props.show) {
+            window.addEventListener("beforeunload", onBeforeReload);
+        }
+        else {
+            window.removeEventListener("beforeunload", onBeforeReload);
+        }
+        
+    }, [props.show]);
 
     return (
         <Modal 
