@@ -1,4 +1,5 @@
 import React, { FormEvent, useEffect, useState } from "react";
+import styled from "styled-components";
 import auth from "../auth";
 import Modal from "./Modal";
 
@@ -6,6 +7,55 @@ interface Props {
     show: boolean;
     onClose: () => void;
 }
+
+const Form = styled.form`
+    display: flex;
+    flex-direction: column;
+`;
+
+const PreviewImage = styled.img`
+    width: 20rem;
+    align-self: center;
+    margin: 1rem;
+`;
+
+const UploadImage = styled.label`
+    width: 150px;
+    height: 30px;
+    margin: 1rem;
+    background: #fff;
+    border: 1px solid rgb(77,77,77);
+    border-radius: 10px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+    &:hover {
+        background: rgb(77,77,77);
+        color: #fff;
+    }
+`;
+
+const TitleInput = styled.input`
+    height: 2rem;
+    margin: 0.5rem;
+    padding: 0.25rem 0.5rem 0.25rem 0.5rem;
+    border: 1px solid rgb(77,77,77);
+    border-radius: 10px;
+    font-size: 16px;
+`;
+
+const ContentTextArea = styled.textarea`
+    resize: none;
+    height: 10rem;
+    margin: 0.5rem;
+    padding: 0.5rem;
+    border: 1px solid rgb(77,77,77);
+    border-radius: 10px;
+    font-size: 14px;
+`;
 
 const PostWrite: React.FC<Props> = (props) => {
     const [image, setImage] = useState<string>();
@@ -51,12 +101,12 @@ const PostWrite: React.FC<Props> = (props) => {
                 <h2>내 활동 인증</h2>
             }
             main={
-                <form style={{ display: "flex", flexDirection: "column"}}>
-                    <img src={image}></img>
-                    <label>사진 업로드 : <input type="file" accept="image/png, image/jpeg" name="postImage" onChange={onImageChange}></input></label> 
-                    <input type="text" placeholder="제목" name="postTitle" onChange={onTextChange}></input>
-                    <textarea placeholder="내용" name="postContent" onChange={onTextChange}></textarea>
-                </form>
+                <Form>
+                    <PreviewImage src={image}></PreviewImage>
+                    <UploadImage>사진 업로드<input type="file" accept="image/png, image/jpeg" name="postImage" onChange={onImageChange} style={{display: "none"}}></input></UploadImage> 
+                    <TitleInput type="text" placeholder="제목을 입력하세요." name="postTitle" onChange={onTextChange}></TitleInput>
+                    <ContentTextArea placeholder="내용을 입력하세요." name="postContent" onChange={onTextChange}></ContentTextArea>
+                </Form>
             }
             footer={
                 <>
