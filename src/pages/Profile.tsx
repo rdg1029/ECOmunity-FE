@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import ProfileImg from "../components/ProfileImg";
 import ProfileBgImg from "../components/ProfileBgImg";
+import ProfileIntro from "../components/ProfileIntro";
 
 const ProfileWholeContainer = styled.div`
     width: 100%;
@@ -14,11 +15,9 @@ const ProfileWholeContainer = styled.div`
 const Profile: React.FC = () => {
     return (
         <ProfileWholeContainer>
-            <h1>대충 프로필 들어가는 부분입니다.</h1>
-            <ProfileBgImg/>
+            <ProfileBgImg/> 
             <ProfileImg/>
-
-
+            <ProfileIntro/>
         </ProfileWholeContainer>
     );
 }
