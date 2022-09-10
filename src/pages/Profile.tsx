@@ -3,6 +3,7 @@ import styled from "styled-components";
 import ProfileImg from "../components/ProfileImg";
 import ProfileBgImg from "../components/ProfileBgImg";
 import ProfileIntro from "../components/ProfileIntro";
+import ProfilePoint from "../components/ProfilePoint";
 
 const ProfileWholeContainer = styled.div`
     width: 100%;
@@ -18,6 +19,7 @@ const Profile: React.FC = () => {
             <ProfileBgImg/> 
             <ProfileImg/>
             <ProfileIntro/>
+            <ProfilePoint/>
         </ProfileWholeContainer>
     );
 }
