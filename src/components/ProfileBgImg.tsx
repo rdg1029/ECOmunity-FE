@@ -5,7 +5,8 @@ const ProfileBgImgWholeStyle = styled.div`
     width: 100%;
     height: 200px;
     background-color: green;
-    z-index: 0
+    position: fixed;
+    z-index: -1
 `
 
 const ProfileBgImg : React.FC = () => {
