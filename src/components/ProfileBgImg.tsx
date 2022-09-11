@@ -3,16 +3,21 @@ import styled from "styled-components";
 
 const ProfileBgImgWholeStyle = styled.div`
     width: 100%;
-    height: 200px;
-    background-color: green;
-    position: fixed;
-    z-index: -1
+    height: 100%;
+    position: absolute;
+    z-index: -10;
+
+    img{
+        width: 100%;
+        height: 70%;
+        z-index: -20;
+    }
 `
 
 const ProfileBgImg : React.FC = () => {
     return(
         <ProfileBgImgWholeStyle>
-            <h1>Profile Background Image</h1>
+            <img src="https://cdn.pixabay.com/photo/2018/07/07/16/39/landscape-3522447_960_720.jpg"/>
         </ProfileBgImgWholeStyle>
     );
 }

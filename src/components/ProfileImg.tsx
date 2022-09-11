@@ -13,6 +13,7 @@ const ProfileImgWholeStyle = styled.div`
     font-size:12px;
     vertical-align:middle;
     line-height:300px;
+    z-index: 3;
 
     img{
         width: 100%;
@@ -27,7 +28,6 @@ const ProfileImg : React.FC = () => {
     return(
         <ProfileImgWholeStyle>
             <img src={auth.currentUser?.photoURL as string}/>
-            
         </ProfileImgWholeStyle>
         
     );
