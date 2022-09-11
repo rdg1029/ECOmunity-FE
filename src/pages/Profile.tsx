@@ -1,10 +1,13 @@
 import React from "react";
 import styled from "styled-components";
-import ProfileImg from "../components/ProfileImg";
+
 import ProfileBgImg from "../components/ProfileBgImg";
-import ProfileIntro from "../components/ProfileIntro";
-import ProfilePoint from "../components/ProfilePoint";
 import ProfileBg from "../components/ProfileBg";
+import Nav from "../components/Nav";
+
+const NavStyle = styled.div`
+    z-index: 10;
+`
 
 const ProfileWholeContainer = styled.div`
     width: 100%;
@@ -22,16 +25,22 @@ const ProfileBgRect = styled.div`
     position: absolute;
     z-index: -1;
     border-radius: 3%;
-    box-shadow: 5px -1px 10px 3px grey;
+    box-shadow: 5px -1px 10px 3px #206A5D;
 `;
+
 
 const Profile: React.FC = () => {
     return (
-        <ProfileWholeContainer>
-            <ProfileBgImg/> 
-            <ProfileBg/>
-            <ProfileBgRect/>
-        </ProfileWholeContainer>
+        <>
+            <NavStyle>
+            <Nav/>
+            </NavStyle>
+            <ProfileWholeContainer>
+                <ProfileBgImg/> 
+                <ProfileBg/>
+                <ProfileBgRect/>
+            </ProfileWholeContainer>
+        </>
     );
 }
 
