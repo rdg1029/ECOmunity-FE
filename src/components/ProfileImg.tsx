@@ -3,7 +3,6 @@ import styled from "styled-components";
 import auth from "../auth";
 
 const ProfileImgWholeStyle = styled.div`
-    background-color:#86efef;
     width:300px;
     height:300px;
     border-radius:300px;
@@ -19,6 +18,7 @@ const ProfileImgWholeStyle = styled.div`
         width: 100%;
         height: 100%;
         border-radius: 70%;
+        border: 5px solid green;
     }
 
     
