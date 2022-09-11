@@ -32,9 +32,6 @@ const ProfileBgRect = styled.div`
 const Profile: React.FC = () => {
     return (
         <>
-            <NavStyle>
-            <Nav/>
-            </NavStyle>
             <ProfileWholeContainer>
                 <ProfileBgImg/> 
                 <ProfileBg/>

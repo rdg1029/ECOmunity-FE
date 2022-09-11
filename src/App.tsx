@@ -1,7 +1,7 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import GlobalStyle from './styles/GlobalStyle';
-import Nav from './components/Nav';
+import NavBase from './components/NavBase';
 import Main from './pages/Main';
 import Notice from './pages/Notice';
 import Post from './pages/Post';
@@ -16,12 +16,13 @@ const App: React.FC = () => {
         <GlobalStyle/>
         <div className="App">
             <Routes>
-                <Route element={<Nav />} />
-                <Route path='/' element={<Main />} />
-                <Route path='/notice' element={<Notice />} />
-                <Route path='/post' element={<Post />} />
-                <Route path='/profile' element={<Profile />} />
-                <Route path='/login' element={<Login />} />
+                <Route element={<NavBase/>}>
+                    <Route path='/' element={<Main />} />
+                    <Route path='/notice' element={<Notice />} />
+                    <Route path='/post' element={<Post />} />
+                    <Route path='/profile' element={<Profile />} />
+                    <Route path='/login' element={<Login />} />
+                </Route>
             </Routes>
         </div>
         </>
