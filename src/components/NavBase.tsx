@@ -7,23 +7,23 @@ const NavBase = () => {
     return(
         <>
             <BaseContainer>
-                <Outlet/>
                 <NavContainer>
                     <Nav/>
                 </NavContainer>
+                <Outlet/>
             </BaseContainer>
         </>
     )
 }
 
 const BaseContainer = styled.div`
-    height: 100%;
-    width: 10%;
+
 `;
 
 const NavContainer = styled.div`
     width: 100%;
-    position: fixed;
+    position: absolute;
+    z-index: 100;
 `;
 
 
