@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import auth from "../auth";
 
 const ProfileImgWholeStyle = styled.div`
     background-color:#86efef;
@@ -13,15 +14,26 @@ const ProfileImgWholeStyle = styled.div`
     vertical-align:middle;
     line-height:300px;
 
+    img{
+        width: 100%;
+        height: 100%;
+        border-radius: 70%;
+    }
+
     
 `;
 
 const ProfileImg : React.FC = () => {
     return(
         <ProfileImgWholeStyle>
-            <h1>Profile Image</h1>
+            <img src={auth.currentUser?.photoURL as string}/>
+            
         </ProfileImgWholeStyle>
+        
     );
 }
 
 export default ProfileImg;
+
+
+                

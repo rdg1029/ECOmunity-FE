@@ -1,10 +1,13 @@
 import React from "react";
+import auth from "../auth";
+
+const uName = auth.currentUser?.displayName;
 
 const ProfileIntro : React.FC = () => {
     return(
         <>
-            <h1>이름</h1>
-            <h2>안녕하세요 제 이름은 정승민인데요?</h2>
+            <h1>{uName}</h1>
+            <h2>We are~ We are~</h2>
         </>
     );
 }
