@@ -1,6 +1,15 @@
 pipeline {
     agent any
 
+    environment {
+        REACT_APP_FIREBASE_API_KEY=credentials("ecomunity-firebase-api-key")
+        REACT_APP_FIREBASE_AUTH_DOMAIN=credentials("ecomunity-firebase-auth-domain")
+        REACT_APP_FIREBASE_PROJECT_ID=credentials("ecomunity-firebase-project-id")
+        REACT_APP_FIREBASE_STORAGE_BUCKET=credentials("ecomunity-firebase-storage-bucket")
+        REACT_APP_FIREBASE_MESSAGING_SENDER_ID=credentials("ecomunity-firebase-messaging-sender-id")
+        REACT_APP_FIREBASE_APP_ID=credentials("ecomunity-firebase-app-id")
+    }
+
     stages {
         stage("Set Variable") {
             steps {
