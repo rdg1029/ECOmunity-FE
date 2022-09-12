@@ -24,7 +24,7 @@ pipeline {
 
         stage("Debug Environmental Variable") {
             steps {
-                echo $REACT_APP_FIREBASE_APP_ID
+                echo REACT_APP_FIREBASE_APP_ID
             }
         }
 
