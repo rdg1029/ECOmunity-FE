@@ -14,13 +14,17 @@ pipeline {
         stage("Set Variable") {
             steps {
                 script {
-                    echo $REACT_APP_FIREBASE_APP_ID
-
                     DOCKERHUB_CREDENTIAL = "dockerhub-yymin1022"
                     DOCKER_IMAGE_NAME = "ecomunity-fe"
                     DOCKER_IMAGE_STORAGE = "yymin1022"
                     DOCKER_IMAGE_TAG = "test_build"
                 }
+            }
+        }
+
+        stage("Debug Environmental Variable") {
+            steps {
+                echo $REACT_APP_FIREBASE_APP_ID
             }
         }
 
