@@ -1,14 +1,18 @@
 import { onAuthStateChanged } from "firebase/auth";
+import { useSelector } from 'react-redux';
 import React, { useState } from "react";
 import styled from "styled-components";
 import auth from "../auth";
+
+
 
 const MyPointLayoutStyle = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     color : white;
-    height: 400px;
+    height: 280px;
+    margin-left: 300px;
 
     
 `;
@@ -36,7 +40,7 @@ const MyPoint : React.FC = () => {
     const [isLogin, setLogin] = useState<boolean>();
     const user = auth.currentUser?.providerData[0];
     const usrName = user?.displayName;
-    const usrPoint = 706;
+
     onAuthStateChanged(auth, (user) => {
         if (user) {
             setLogin(true);
@@ -51,11 +55,11 @@ const MyPoint : React.FC = () => {
                     {isLogin ?
                     <>
                         <p>{usrName} 님의 Ecomunity 포인트</p>
-                            <h1> {usrPoint} 점 </h1>
+                            <h1> 0 점 </h1>
                         <p>{'>'} Ecomunity 포인트 사용처 보기</p>
                     </>
                     :
-                    <p>로그인부터 하시죠? ^^</p>
+                    <p>안녕하세요 이커뮤니티입니다.<br/> 로그인을 해주세요.</p>
                     }
                 </MyPointTextLayoutStyle>
             </MyPointLayoutStyle>

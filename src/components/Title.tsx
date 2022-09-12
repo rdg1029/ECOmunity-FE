@@ -6,7 +6,8 @@ const TitleLayoutStyle = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    height: 400px;
+    height: 20px;
+    margin-left: 80px;
     
 `;/**Flex Container of Title Component */
 
