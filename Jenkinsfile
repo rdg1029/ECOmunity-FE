@@ -24,8 +24,9 @@ pipeline {
 
         stage("Build Docker Image") {
             steps {
-                echo REACT_APP_FIREBASE_APP_ID
-                
+                export REACT_APP_FIREBASE_APP_ID="${REACT_APP_FIREBASE_APP_ID}"
+                echo $REACT_APP_FIREBASE_APP_ID
+
                 script {
                     image = docker.build("${DOCKER_IMAGE_STORAGE}/${DOCKER_IMAGE_NAME}")
                 }
