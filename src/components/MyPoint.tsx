@@ -8,7 +8,8 @@ const MyPointLayoutStyle = styled.div`
     flex-direction: column;
     align-items: flex-start;
     color : white;
-    height: 400px;
+    height: 280px;
+    margin-left: 300px;
 
     
 `;

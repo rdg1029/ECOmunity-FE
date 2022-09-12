@@ -23,7 +23,7 @@ const BaseContainer = styled.div`
 const NavContainer = styled.div`
     width: 100%;
     position: absolute;
-    z-index: 100;
+    z-index: 200;
 `;
 
 
