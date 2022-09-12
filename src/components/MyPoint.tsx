@@ -1,7 +1,10 @@
 import { onAuthStateChanged } from "firebase/auth";
+import { useSelector } from 'react-redux';
 import React, { useState } from "react";
 import styled from "styled-components";
 import auth from "../auth";
+
+
 
 const MyPointLayoutStyle = styled.div`
     display: flex;
@@ -37,7 +40,7 @@ const MyPoint : React.FC = () => {
     const [isLogin, setLogin] = useState<boolean>();
     const user = auth.currentUser?.providerData[0];
     const usrName = user?.displayName;
-    const usrPoint = 706;
+
     onAuthStateChanged(auth, (user) => {
         if (user) {
             setLogin(true);
@@ -52,7 +55,7 @@ const MyPoint : React.FC = () => {
                     {isLogin ?
                     <>
                         <p>{usrName} 님의 Ecomunity 포인트</p>
-                            <h1> {usrPoint} 점 </h1>
+                            <h1> 0 점 </h1>
                         <p>{'>'} Ecomunity 포인트 사용처 보기</p>
                     </>
                     :

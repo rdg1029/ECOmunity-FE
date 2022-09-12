@@ -1,25 +1,37 @@
-import React from "react";
+import React, {useState} from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { onAuthStateChanged } from "firebase/auth";
+import auth from "../auth";
 
-const NavBg : React.FC = () => {
-    return(
-        <div>
-        </div>
-    );
-}
 
 const Nav: React.FC = () => {
+    const [isLogin, setLogin] = useState<boolean>();
+
+    onAuthStateChanged(auth, (user) => {
+        if (user) {
+            setLogin(true);
+            return;
+        }
+        setLogin(false);
+    });
     return(
         <> 
             <GlobalNavStyle>
                     <NavMenuStyle>
                         <NavMenuStyle>
                             <p><Link to='/'>홈</Link></p>
-                            <p><Link to='/login'>로그인</Link></p>
                             <p><Link to='/notice'>공지</Link></p>
                             <p><Link to='/post'>게시판</Link></p>
+                            <p><Link to='/login'>
+                                {isLogin ?
+                                    <>로그아웃</>
+                                    :
+                                    <>로그인</>
+                                }
+                                </Link></p>
                             <p><Link to='/profile'>프로필</Link></p>
+                            
                         </NavMenuStyle>
                     </NavMenuStyle>
             </GlobalNavStyle>
