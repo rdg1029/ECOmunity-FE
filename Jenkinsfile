@@ -24,8 +24,12 @@ pipeline {
 
         stage("Build Docker Image") {
             steps {
+                sh 'export REACT_APP_FIREBASE_API_KEY="${REACT_APP_FIREBASE_API_KEY}"'
+                sh 'export REACT_APP_FIREBASE_AUTH_DOMAIN="${REACT_APP_FIREBASE_AUTH_DOMAIN}"'
+                sh 'export REACT_APP_FIREBASE_PROJECT_ID="${REACT_APP_FIREBASE_PROJECT_ID}"'
+                sh 'export REACT_APP_FIREBASE_STORAGE_BUCKET="${REACT_APP_FIREBASE_STORAGE_BUCKET}"'
+                sh 'export REACT_APP_FIREBASE_MESSAGING_SENDER_ID="${REACT_APP_FIREBASE_MESSAGING_SENDER_ID}"'
                 sh 'export REACT_APP_FIREBASE_APP_ID="${REACT_APP_FIREBASE_APP_ID}"'
-                sh 'echo $REACT_APP_FIREBASE_APP_ID'
 
                 script {
                     image = docker.build("${DOCKER_IMAGE_STORAGE}/${DOCKER_IMAGE_NAME}")
