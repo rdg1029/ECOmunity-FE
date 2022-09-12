@@ -59,7 +59,7 @@ const MyPoint : React.FC = () => {
                         <p>{'>'} Ecomunity 포인트 사용처 보기</p>
                     </>
                     :
-                    <p>로그인부터 하시죠? ^^</p>
+                    <p>안녕하세요 이커뮤니티입니다.<br/> 로그인을 해주세요.</p>
                     }
                 </MyPointTextLayoutStyle>
             </MyPointLayoutStyle>
