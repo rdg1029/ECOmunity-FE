@@ -6,6 +6,8 @@ const GlobalNavStyle = styled.div`
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-evenly;
+    background-color:transparent;
+    z-index: 100;
 `;
 
 const NavMenuStyle = styled.div`
@@ -21,6 +23,7 @@ const NavMenuStyle = styled.div`
         font-size: 20px;
         margin-left : 100px;
         margin-right: 100px;
+
         a { text-decoration: none; color: white; }
         a:visited { text-decoration: none; }
     }
@@ -40,7 +43,6 @@ const Nav: React.FC = () => {
                     </NavMenuStyle>
                 </NavMenuStyle>
             </GlobalNavStyle>
-        
         </>
     );
 

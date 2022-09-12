@@ -34,7 +34,6 @@ const Main: React.FC = () => {
     return (
         <>  
             <GlobalMainStyle>
-                <Nav/>
                 <MainLayoutContainer>
                         <Title/>
                     <MainLayoutPointStyle>
