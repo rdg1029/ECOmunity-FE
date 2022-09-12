@@ -15,10 +15,11 @@ const Nav: React.FC = () => {
             <GlobalNavStyle>
                     <NavMenuStyle>
                         <NavMenuStyle>
-                            <p><Link to='/profile'>프로필</Link></p>
+                            <p><Link to='/'>홈</Link></p>
                             <p><Link to='/login'>로그인</Link></p>
                             <p><Link to='/notice'>공지</Link></p>
                             <p><Link to='/post'>게시판</Link></p>
+                            <p><Link to='/profile'>프로필</Link></p>
                         </NavMenuStyle>
                     </NavMenuStyle>
             </GlobalNavStyle>
@@ -27,15 +28,6 @@ const Nav: React.FC = () => {
 
 }
 
-
-
-const NavBgStyle = styled.div`
-    width: auto;
-    height: auto;
-    z-index: 80;
-    
-    opacity: 20%;
-`
 
 const GlobalNavStyle = styled.div`
     display: flex;
@@ -46,7 +38,6 @@ const GlobalNavStyle = styled.div`
 
 const NavMenuStyle = styled.div`
     @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.5/dist/web/static/pretendard.css");
-
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-evenly;
