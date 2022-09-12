@@ -18,6 +18,13 @@ pipeline {
                     DOCKER_IMAGE_NAME = "ecomunity-fe"
                     DOCKER_IMAGE_STORAGE = "yymin1022"
                     DOCKER_IMAGE_TAG = "test_build"
+
+                    export REACT_APP_FIREBASE_API_KEY="${REACT_APP_FIREBASE_API_KEY}"
+                    export REACT_APP_FIREBASE_AUTH_DOMAIN="${REACT_APP_FIREBASE_AUTH_DOMAIN}"
+                    export REACT_APP_FIREBASE_PROJECT_ID="${REACT_APP_FIREBASE_PROJECT_ID}"
+                    export REACT_APP_FIREBASE_STORAGE_BUCKET="${REACT_APP_FIREBASE_STORAGE_BUCKET}"
+                    export REACT_APP_FIREBASE_MESSAGING_SENDER_ID="${REACT_APP_FIREBASE_MESSAGING_SENDER_ID}"
+                    export REACT_APP_FIREBASE_APP_ID="${REACT_APP_FIREBASE_APP_ID}"
                 }
             }
         }
