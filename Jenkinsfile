@@ -22,14 +22,10 @@ pipeline {
             }
         }
 
-        stage("Debug Environmental Variable") {
-            steps {
-                echo REACT_APP_FIREBASE_APP_ID
-            }
-        }
-
         stage("Build Docker Image") {
             steps {
+                echo REACT_APP_FIREBASE_APP_ID
+                
                 script {
                     image = docker.build("${DOCKER_IMAGE_STORAGE}/${DOCKER_IMAGE_NAME}")
                 }
