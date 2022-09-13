@@ -14,7 +14,7 @@ const Login: React.FC = () => {
     });
 
     return (
-        <div>
+        <LoginMainStyle>
             {isLogin ?
             <div>
                 <h1>환영합니다!</h1>
@@ -30,12 +30,15 @@ const Login: React.FC = () => {
             </div>
             }
             
-        </div>
+        </LoginMainStyle>
     );
 }
 
 const LoginMainStyle = styled.div`
-    
+    width: 100%;
+    height: 100%;
+    background-color: red;
+    margin-top: 200px;
 `;
 
 export default Login;

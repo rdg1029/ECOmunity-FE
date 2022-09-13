@@ -6,19 +6,14 @@ import Nav from "./Nav";
 const NavBase = () => {
     return(
         <>
-            <BaseContainer>
                 <NavContainer>
                     <Nav/>
+                    <Outlet/>
                 </NavContainer>
-                <Outlet/>
-            </BaseContainer>
+                
         </>
     )
 }
-
-const BaseContainer = styled.div`
-
-`;
 
 const NavContainer = styled.div`
     width: 100%;
