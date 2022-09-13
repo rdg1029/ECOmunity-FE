@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { onAuthStateChanged } from 'firebase/auth'
 import auth, {signInGoogle, signOutGoogle} from '../auth'
-import { useSelector } from 'react-redux';
 
 const Login: React.FC = () => {
     const [isLogin, setLogin] = useState<boolean>();
