@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { onAuthStateChanged } from 'firebase/auth'
 import auth, {signInGoogle, signOutGoogle} from '../auth'
+import styled from 'styled-components';
 
 const Login: React.FC = () => {
     const [isLogin, setLogin] = useState<boolean>();
@@ -32,5 +33,9 @@ const Login: React.FC = () => {
         </div>
     );
 }
+
+const LoginMainStyle = styled.div`
+    
+`;
 
 export default Login;
