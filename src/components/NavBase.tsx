@@ -5,20 +5,18 @@ import Nav from "./Nav";
 
 const NavBase = () => {
     return(
-        <>
-                <NavContainer>
-                    <Nav/>
-                    <Outlet/>
-                </NavContainer>
+            <NavContainer>
+                <Nav/>
+                <Outlet/>
+            </NavContainer>
                 
-        </>
     )
 }
 
 const NavContainer = styled.div`
     width: 100%;
     position: fixed;
-    z-index: 200;
+    z-index: 300;
 `;
 
 

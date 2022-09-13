@@ -16,7 +16,6 @@ const Nav: React.FC = () => {
         setLogin(false);
     });
     return(
-        <> 
             <GlobalNavStyle>
                     <NavMenuStyle>
                         <NavMenuStyle>
@@ -35,7 +34,6 @@ const Nav: React.FC = () => {
                         </NavMenuStyle>
                     </NavMenuStyle>
             </GlobalNavStyle>
-        </>
     );
 
 }
