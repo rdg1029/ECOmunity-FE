@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import auth from "../auth";
+import PostView from "../components/PostView";
 import PostWrite from "../components/PostWrite";
 
 const Post: React.FC = () => {
     const [isWriteMode, setWriteMode] = useState<boolean>(false);
+    const searchParams = new URLSearchParams(window.location.search);
+    if (searchParams.has('id')) return <PostView id={searchParams.get('id')} />
 
     return (
         <div>
