@@ -1,6 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 
+const ProfileBgImg : React.FC = () => {
+    return(
+        <ProfileBgImgWholeStyle src="https://cdn.pixabay.com/photo/2018/07/07/16/39/landscape-3522447_960_720.jpg"/>
+    );
+}
+
 const ProfileBgImgWholeStyle = styled.img`
     width: 100%;
     height: 100%;
@@ -12,12 +18,6 @@ const ProfileBgImgWholeStyle = styled.img`
     overflow: auto;
     position: fixed;
     z-index: -100;
-`
-
-const ProfileBgImg : React.FC = () => {
-    return(
-        <ProfileBgImgWholeStyle src="https://cdn.pixabay.com/photo/2018/07/07/16/39/landscape-3522447_960_720.jpg"/>
-    );
-}
+`;
 
 export default ProfileBgImg;

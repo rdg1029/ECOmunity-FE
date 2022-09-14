@@ -3,7 +3,7 @@ import styled from "styled-components";
 import NoticeThumbnail from "./NoticeThumbnail";
 import NoticeTitle from "./NoticeTitle";
 
-const testImgSrc = "http://newsteacher.chosun.com/site/data/img_dir/2019/08/29/2019082900396_0.jpg";
+
 
 const NoticeLayout : React.FC = () => {
     return(
@@ -29,7 +29,6 @@ const NoticeGlobalStyle = styled.div`
     width: 100%;
     position: absolute;
     flex-flow: column;
-    justify-content: center;
     margin-top: 20px;
 ;
     
@@ -40,9 +39,6 @@ const NoticeGlobalStyle = styled.div`
 
 const NoticeThumbnailStyle = styled.div`
     display: flex;
-    flex-flow: row, nowrap;
-    align-items: center;
-    justify-content: center;
     
 `
 

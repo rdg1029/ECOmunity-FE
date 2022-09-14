@@ -4,21 +4,11 @@ import NoticeImg from "./NoticeImg";
 import NoticeTxt from "./NoticeTxt";
 
 
-
-
-
-
-
 const NoticeThumbnail : React.FC = (props) => {
     return(
         <NoticeThumbnailStyle>
-            <NoticeImgStyle>
                 <NoticeImg/>
-            </NoticeImgStyle>
-            <NoticeTxtStyle>
                 <NoticeTxt/>
-            </NoticeTxtStyle>
-            
         </NoticeThumbnailStyle>
     );
 };
@@ -28,27 +18,13 @@ const NoticeThumbnailStyle = styled.div`
     flex-direction: column;
     margin-bottom : 50px;
     margin-top: 50px;
+    margin-left: 100px;
     z-index: 3;
-    
-    
+    box-shadow: 3px 3px 8px 1px #000;    
 `;
 
-const NoticeImgStyle = styled.div`
-    width: 450px;
-    height: 300px;
-    display: flex;
-    flex-direction: column;
-    background-color: red;
-    margin-left: 100px;
-`;
 
-const NoticeTxtStyle = styled.div`
-    width: 450px;
-    height: 50px;
-    display: flex;
-    flex-direction: column;
-    background-color: blue;
-    margin-left: 100px;
-`;
+
+
 
 export default NoticeThumbnail;
