@@ -33,7 +33,7 @@
 </td>
 </tr>
 <tr>
-<td align="center"><b>Project Manager<br/>Back-End</b></td>
+<td align="center"><b>Project Manager<br/>Back-End<br/>Server Management</b></td>
 <td align="center"><b>Front-End</b></td>
 <td align="center"><b>Front-End</b></td>
 </tr>
