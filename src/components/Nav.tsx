@@ -19,18 +19,17 @@ const Nav: React.FC = () => {
             <GlobalNavStyle>
                     <NavMenuStyle>
                         <NavMenuStyle>
-                            <p><Link to='/'>홈</Link></p>
-                            <p><Link to='/notice'>공지</Link></p>
-                            <p><Link to='/post'>게시판</Link></p>
+                            <p><Link to='/'>HOME</Link></p>
+                            <p><Link to='/notice'>NEW ECO</Link></p>
+                            <p><Link to='/post'>OUR ECO</Link></p>
+                            <p><Link to='/profile'>My ECO</Link></p>
                             <p><Link to='/login'>
                                 {isLogin ?
-                                    <>로그아웃</>
+                                    <>Logout</>
                                     :
-                                    <>로그인</>
+                                    <>Login</>
                                 }
                                 </Link></p>
-                            <p><Link to='/profile'>프로필</Link></p>
-                            
                         </NavMenuStyle>
                     </NavMenuStyle>
             </GlobalNavStyle>
