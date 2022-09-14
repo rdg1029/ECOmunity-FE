@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import NoticeDeco from "../components/NoticeDeco";
 import NoticeThumbnail from "../components/NoticeThumbnail";
 
 const companyNum = 3;
