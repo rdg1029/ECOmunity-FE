@@ -44,7 +44,6 @@ const GlobalNavStyle = styled.div`
     flex-flow: row nowrap;
     justify-content: space-evenly;
     background-color: rgba( 0, 0, 0, 0.6 );
-    position: fixed;
     z-index: 150;
     width: 100%;
 `;
@@ -68,6 +67,5 @@ const NavMenuStyle = styled.div`
     }
     
 `;
-
 
 export default Nav;

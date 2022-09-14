@@ -3,12 +3,10 @@ import styled from "styled-components";
 import ProfileBgImg from "../components/ProfileBgImg";
 import ProfileBg from "../components/ProfileBg";
 
-
 const ProfileWholeContainer = styled.div`
     width: 100%;
     height: 100%;
     display: flex;
-    flex-direction: column;
     position: absolute;
 `;
 
@@ -24,13 +22,11 @@ const ProfileBgRect = styled.div`
 
 const Profile: React.FC = () => {
     return (
-        <>
-            <ProfileWholeContainer>
-                <ProfileBgImg/> 
-                <ProfileBg/>
-                <ProfileBgRect/>
-            </ProfileWholeContainer>
-        </>
+        <ProfileWholeContainer>
+            <ProfileBgImg />
+            <ProfileBg />
+            <ProfileBgRect />
+        </ProfileWholeContainer>
     );
 }
 
