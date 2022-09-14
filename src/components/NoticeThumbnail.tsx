@@ -6,16 +6,22 @@ import NoticeTxt from "./NoticeTxt";
 
 const NoticeThumbnail : React.FC = (props) => {
     return(
-        <a href="/"> 
+        <PostLinkStyle href="/"> 
         {/**글마다 링크를 걸어야겠습니다. */}
             <NoticeThumbnailStyle>
                     <NoticeImg/>
                     <NoticeTxt/>
             </NoticeThumbnailStyle>
-        </a>
+        </PostLinkStyle>
     );
 };
 
+const PostLinkStyle = styled.a`
+    text-decoration: none; color: white;
+    :visited{
+        text-decoration: none
+    };
+`
 const NoticeThumbnailStyle = styled.div`
     display: flex;
     flex-direction: column;
