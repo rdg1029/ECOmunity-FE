@@ -12,7 +12,6 @@ const NavBase: React.FC = () => {
 
 const NavContainer = styled.div`
     width: 100%;
-    // position: fixed;
     z-index: 300;
 `;
 

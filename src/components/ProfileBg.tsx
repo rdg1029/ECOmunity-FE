@@ -10,6 +10,7 @@ const ProfileContentsContainer = styled.div`
     display: flex;
     flex-direction: column;
     position: absolute;
+    z-index: 100;
 
 `;
 
