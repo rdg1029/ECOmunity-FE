@@ -18,8 +18,7 @@ const NoticeThumbnailStyle = styled.div`
     flex-direction: column;
     margin-bottom : 50px;
     margin-top: 50px;
-    margin-left: 100px;
-    z-index: 3;
+    margin-left: 85px;
     box-shadow: 3px 3px 8px 1px #000;    
 `;
 

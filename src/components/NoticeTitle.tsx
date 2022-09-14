@@ -18,9 +18,9 @@ const NoticeTitleStyle = styled.div`
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    z-index: 1;
     font-family: 'Pretendard-Thin';
-    margin-left: 150px;
+    margin-left: 90px;
+
 
 `;
 /**공지사항 컴포넌트 제목에 대한 스타일 */

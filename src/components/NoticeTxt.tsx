@@ -77,6 +77,7 @@ const NoticeTxtGlobalStyle = styled.div`
     justify-content: flex-start;
     align-items: flex-start;
     color: #000;
+    background-color: #fff;
 `;
 
 const NoticeTxtTitleStyle = styled.div`
