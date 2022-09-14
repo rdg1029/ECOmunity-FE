@@ -28,10 +28,10 @@ const NoticeTxtStyle = styled.div`
     background-color: blue;
     margin-left: 100px;
 `
-const NoticeImg : React.FC = () => {
+const NoticeImg : React.FC = (props) => {
+    
     return(
         <>
-            img
         </>
     );
 
@@ -46,11 +46,12 @@ const NoticeTxt : React.FC = () => {
 }
 
 
-const NoticeThumbnail : React.FC = () => {
+const NoticeThumbnail : React.FC = (props) => {
     return(
         <NoticeThumbnailStyle>
             <NoticeImgStyle>
-                <NoticeImg/>
+                <NoticeImg
+                />
             </NoticeImgStyle>
             <NoticeTxtStyle>
                 <NoticeTxt/>
