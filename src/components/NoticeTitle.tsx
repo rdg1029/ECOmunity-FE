@@ -1,13 +1,15 @@
 import React from "react";
 import styled from "styled-components";
 
+const companyNum = 0;
+
 const NoticeTitle: React.FC = () => {
-    const companyNum = 3;
+    
     return(
         <>
         <NoticeTitleStyle>
             <NoticePStyle>오늘의 환경 보호 캠페인</NoticePStyle>
-            {companyNum} 개의 기업이 함께하고 있어요.
+            <NoticeSubPStyle>{companyNum} 개의 기업이 함께하고 있어요.</NoticeSubPStyle>
         </NoticeTitleStyle>
         </>
     );
@@ -28,6 +30,12 @@ const NoticeTitleStyle = styled.div`
 const NoticePStyle = styled.p`
     font-family: 'Pretendard-Thin';
     font-size:50px;
+    margin: 0;
+`;
+
+const NoticeSubPStyle = styled.p`
+    font-family: 'Pretendard-Thin';
+    font-size:30px;
     margin: 0;
 `
 
