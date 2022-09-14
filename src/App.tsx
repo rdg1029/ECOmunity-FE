@@ -15,14 +15,13 @@ const App: React.FC = () => {
         <>
         <GlobalStyle/>
         <div className="App">
+        <NavBase/>
             <Routes>
-                <Route element={<NavBase/>}>
-                    <Route path='/' element={<Main />} />
-                    <Route path='/notice' element={<Notice />} />
-                    <Route path='/post' element={<Post />} />
-                    <Route path='/profile' element={<Profile />} />
-                    <Route path='/login' element={<Login />} />
-                </Route>
+                <Route path='/' element={<Main />} />
+                <Route path='/notice' element={<Notice />} />
+                <Route path='/post' element={<Post />} />
+                <Route path='/profile' element={<Profile />} />
+                <Route path='/login' element={<Login />} />
             </Routes>
         </div>
         </>
