@@ -7,7 +7,7 @@ import NoticeTxt from "./NoticeTxt";
 const NoticeThumbnail : React.FC = (props) => {
     return(
         <PostLinkStyle href="/"> 
-        {/**글마다 링크를 걸어야겠습니다. */}
+        {/**글마다 링크를 걸어야겠습니다. -> PostView.tsx */}
             <NoticeThumbnailStyle>
                     <NoticeImg/>
                     <NoticeTxt/>

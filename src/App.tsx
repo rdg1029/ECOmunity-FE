@@ -7,7 +7,7 @@ import Notice from './pages/Notice';
 import Post from './pages/Post';
 import Profile from './pages/Profile';
 import Login from './pages/Login';
-
+import PostView from './pages/PostView';
 import './App.css';
 
 const App: React.FC = () => {
@@ -22,6 +22,7 @@ const App: React.FC = () => {
                 <Route path='/post' element={<Post />} />
                 <Route path='/profile' element={<Profile />} />
                 <Route path='/login' element={<Login />} />
+                <Route path='/postview' element={<PostView/>} />
             </Routes>
         </div>
         </>
