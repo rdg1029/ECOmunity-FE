@@ -22,7 +22,7 @@ const Nav: React.FC = () => {
                             <p><Link to='/'>HOME</Link></p>
                             <p><Link to='/notice'>NEW ECO</Link></p>
                             <p><Link to='/post'>OUR ECO</Link></p>
-                            <p><Link to='/profile'>My ECO</Link></p>
+                            <p><Link to='/profile'>MY ECO</Link></p>
                             <p><Link to='/login'>
                                 {isLogin ?
                                     <>Logout</>
