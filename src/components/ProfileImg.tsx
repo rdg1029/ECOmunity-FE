@@ -10,7 +10,7 @@ const ProfileImgWholeStyle = styled.div`
     border-radius:300px;
     text-align:center;
     margin:0 auto;
-    margin-top: 100px;
+    margin-top: 150px;
     font-size:12px;
     vertical-align:middle;
     line-height:300px;

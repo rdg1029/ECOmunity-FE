@@ -1,13 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-
 import ProfileBgImg from "../components/ProfileBgImg";
 import ProfileBg from "../components/ProfileBg";
-import Nav from "../components/Nav";
 
-const NavStyle = styled.div`
-    z-index: 10;
-`
 
 const ProfileWholeContainer = styled.div`
     width: 100%;
@@ -20,10 +15,8 @@ const ProfileWholeContainer = styled.div`
 const ProfileBgRect = styled.div`
     width: 100%;
     height: 100%;
-    margin-top: 250px;
+    margin-top: 300px;
     background-color: white;
-    position: absolute;
-    z-index: -1;
     border-radius: 3%;
     box-shadow: 5px -1px 10px 3px #206A5D;
 `;
