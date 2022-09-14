@@ -30,7 +30,7 @@ const BackgroundImgStyle = styled.div`
     width: 100%;
     height: 100%;
     position: fixed;
-    z-index: -100;
+    z-index: -10;
     
 `;
 
@@ -39,9 +39,8 @@ const MainLayoutContainer = styled.div`
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 700px;
     position: absolute;
-    z-index: 100;
+    z-index: 50;
 `;
 /**메인 레이아웃 컨테이너*/
 
