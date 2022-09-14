@@ -6,10 +6,13 @@ import NoticeTxt from "./NoticeTxt";
 
 const NoticeThumbnail : React.FC = (props) => {
     return(
-        <NoticeThumbnailStyle>
-                <NoticeImg/>
-                <NoticeTxt/>
-        </NoticeThumbnailStyle>
+        <a href="/"> 
+        {/**글마다 링크를 걸어야겠습니다. */}
+            <NoticeThumbnailStyle>
+                    <NoticeImg/>
+                    <NoticeTxt/>
+            </NoticeThumbnailStyle>
+        </a>
     );
 };
 
@@ -19,9 +22,9 @@ const NoticeThumbnailStyle = styled.div`
     margin-bottom : 50px;
     margin-top: 50px;
     margin-left: 85px;
-    box-shadow: 3px 3px 8px 1px #000;    
-`;
+    box-shadow: 3px 3px 8px 1px #000;   
 
+`;
 
 
 
