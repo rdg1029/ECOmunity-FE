@@ -19,20 +19,19 @@ const PreviewImage = styled.img`
 `;
 
 const UploadImage = styled.label`
-    width: 150px;
-    height: 30px;
+    padding: 0.5rem 2rem 0.5rem 2rem;
     margin: 1rem;
-    background: #fff;
-    border: 1px solid rgb(77,77,77);
-    border-radius: 10px;
+    background: #00AE68;
+    border-radius: 1rem;
     font-weight: 500;
+    color: #fff;
     cursor: pointer;
     display: flex;
     align-self: center;
     align-items: center;
     justify-content: center;
     &:hover {
-        background: rgb(77,77,77);
+        background: #206A5D;
         color: #fff;
     }
 `;
@@ -54,6 +53,30 @@ const ContentTextArea = styled.textarea`
     border: 1px solid rgb(77,77,77);
     border-radius: 10px;
     font-size: 14px;
+`;
+
+const ButtonCancel = styled.button`
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    margin: 0 0.5rem 0 0;
+    border: none;
+    border-radius: 1rem;
+    cursor: pointer;
+    &:hover {
+        background: #E4E4E4;
+    }
+`;
+
+const ButtonSubmit = styled.button`
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    margin: 0 0.5rem 0 0;
+    border: none;
+    border-radius: 1rem;
+    background: #00AE68;
+    color: #fff;
+    cursor: pointer;
+    &:hover {
+        background: #206A5D;
+    }
 `;
 
 const PostWrite: React.FC<Props> = (props) => {
@@ -144,8 +167,8 @@ const PostWrite: React.FC<Props> = (props) => {
             }
             footer={
                 <>
-                    <button onClick={() => window.location.reload()}>취소</button>
-                    <button onClick={onSubmit}>작성</button>
+                    <ButtonCancel onClick={() => window.location.reload()}>취소</ButtonCancel>
+                    <ButtonSubmit onClick={onSubmit}>작성</ButtonSubmit>
                 </>
             }
             width="60rem"/>
