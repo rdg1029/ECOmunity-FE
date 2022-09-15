@@ -1,19 +1,34 @@
-import React from "react";
+import React, {useState} from "react";
 import styled from "styled-components";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLeaf } from "@fortawesome/free-solid-svg-icons";
 
-const testImgSrc = "http://newsteacher.chosun.com/site/data/img_dir/2019/08/29/2019082900396_0.jpg";
+
+const bgImgSrc = "https://images.pexels.com/photos/1384908/pexels-photo-1384908.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
+const testImgSrc = "https://img.khan.co.kr/news/2022/01/11/2022011101001309200110521.jpg";
 
 const PostView : React.FC = () => {
+    const [leafCnt, setLeafCnt] = useState(0);
+
+    const leafIncrese = () =>{
+        setLeafCnt(leafCnt + 1);
+    };
+
     return(
         <PostWrapper>
+            <PostingBgImgStyle src={bgImgSrc}/>
         <PostViewStyle>
             <TitleStyle>
-                가마우지가 먹이를 먹는 것은 환경을 위한 길인가?
+                여기는 우리의 인증이 들어갈 곳이지요
             </TitleStyle>
 
             <WriterAndDateStyle>
-                <p>2022.09.14 - 김 영 현 작성</p>
+                <p>2022.09.15 김현우</p>
             </WriterAndDateStyle>
+            <LikeStyle onClick={leafIncrese}>
+                    <FontAwesomeIcon icon={faLeaf} color="#14C38E" size="2x"/>
+                    <p>{leafCnt}</p>
+            </LikeStyle>
 
             <PostContentsStyle>
                 <PostImageStyle src={testImgSrc}/>
@@ -41,11 +56,20 @@ const PostView : React.FC = () => {
     );
 };
 
+const PostingBgImgStyle = styled.img`
+    width: 2400px;
+    height: 1600px;
+    position: absolute;
+    z-index: -100;
+    filter: blur(3px);
+`;
+
 const PostWrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+   
 `;
 const PostViewStyle = styled.div`
     width: 70%;
@@ -54,6 +78,8 @@ const PostViewStyle = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border-radius: 1%;
+    background-color: rgba( 255, 255, 255, 0.6 );
 `;
 
 
@@ -70,6 +96,7 @@ const WriterAndDateStyle = styled.div`
     font-size: 15pt;
     display: flex;
     flex-direction: row-reverse;
+    margin-left: 15px;
 
     
 `;
@@ -95,8 +122,26 @@ const PostTextContentStyle = styled.div`
 
 const PostImageStyle = styled.img`
     width: 70%;
-    height: 50%;
+    height: 70%;
     
+`;
+
+const LikeStyle = styled.button`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-left: 20px;
+    margin-top: 0px;
+    border: 0;
+    outline: 0;
+    background-color: transparent;
+
+    p{
+        font-size: 15pt;
+        margin-left: 10px;
+    }
+
 `;
 
 
