@@ -3,6 +3,21 @@ import styled from "styled-components";
 import auth from "../auth";
 import { onAuthStateChanged } from 'firebase/auth';
 
+const ProfileImg : React.FC = () => {
+    const [isLogin, setLogin] = useState<boolean>();
+    onAuthStateChanged(auth, (user) => {
+        if (user) {
+            setLogin(true);
+            return;
+        }
+        setLogin(false);
+    });
+    return(
+        <ProfileImgWholeStyle>
+            <img src={auth.currentUser?.photoURL as string}/>
+        </ProfileImgWholeStyle>
+    );
+}
 
 const ProfileImgWholeStyle = styled.div`
     width:300px;
@@ -25,22 +40,6 @@ const ProfileImgWholeStyle = styled.div`
 
     
 `;
-
-const ProfileImg : React.FC = () => {
-    const [isLogin, setLogin] = useState<boolean>();
-    onAuthStateChanged(auth, (user) => {
-        if (user) {
-            setLogin(true);
-            return;
-        }
-        setLogin(false);
-    });
-    return(
-        <ProfileImgWholeStyle>
-            <img src={auth.currentUser?.photoURL as string}/>
-        </ProfileImgWholeStyle>
-    );
-}
 
 export default ProfileImg;
 

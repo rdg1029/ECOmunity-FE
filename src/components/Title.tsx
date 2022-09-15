@@ -1,6 +1,20 @@
 import React from "react";
 import styled from "styled-components";
 
+const Title : React.FC = () => {
+    return(
+        <>
+        <TitleLayoutStyle>
+            <TitleMainStyle>
+                ECOmunity
+            </TitleMainStyle>
+            <TitleSubStyle>
+                우리들의 행동이 만드는 푸른 발자취.
+            </TitleSubStyle>
+        </TitleLayoutStyle>
+        </>
+    );
+}
 
 const TitleLayoutStyle = styled.div`
     display: flex;
@@ -25,20 +39,6 @@ const TitleSubStyle = styled.div`
     font-size:30px;
     color: white;
     margin: 0;
-`
-const Title : React.FC = () => {
-    return(
-        <>
-        <TitleLayoutStyle>
-            <TitleMainStyle>
-                ECOmunity
-            </TitleMainStyle>
-            <TitleSubStyle>
-                우리들의 행동이 만드는 푸른 발자취.
-            </TitleSubStyle>
-        </TitleLayoutStyle>
-        </>
-    );
-}
+`;
 
 export default Title;

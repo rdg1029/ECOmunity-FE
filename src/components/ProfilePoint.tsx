@@ -3,19 +3,6 @@ import { onAuthStateChanged } from 'firebase/auth';
 import auth from "../auth";
 import styled from "styled-components";
 
-const ProfileUserNameStyle = styled.p`
-    font-family: 'Pretendard-Bold';
-    font-size : 60px;
-`;
-
-const ProfileUserPointStyle = styled.h1`
-    font-family: 'Pretendard-Bold';
-    font-size : 80px;
-    
-`;
-
-
-
 const ProfilePoint:React.FC = () => {
     const [point, setPoint] = useState(0);
     const [isLogin, setLogin] = useState<boolean>();
@@ -40,5 +27,16 @@ const ProfilePoint:React.FC = () => {
         </div>
     );
 }
+
+const ProfileUserNameStyle = styled.p`
+    font-family: 'Pretendard-Bold';
+    font-size : 60px;
+`;
+
+const ProfileUserPointStyle = styled.h1`
+    font-family: 'Pretendard-Bold';
+    font-size : 80px;
+    
+`;
 
 export default ProfilePoint;

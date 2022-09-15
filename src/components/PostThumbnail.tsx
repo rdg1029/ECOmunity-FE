@@ -1,20 +1,19 @@
 import React from "react";
 import styled from "styled-components";
-import NoticeImg from "./NoticeImg";
-import NoticeTxt from "./NoticeTxt";
-import PostView from "../pages/PostView";
+import PostThumbImg from "./PostThumbImg";
+import PostThumbTxt from "./PostThumbTxt";
 import { Link } from "react-router-dom";
 
 
-const NoticeThumbnail : React.FC = (props) => {
+const PostThumbnail : React.FC = () => {
     return(
         <PostLinkStyle>
-        <Link to="/noticeview"> 
+        <Link to="/postview"> 
         {/**글마다 링크를 걸어야겠습니다. -> PostView.tsx */}
-            <NoticeThumbnailStyle>
-                    <NoticeImg/>
-                    <NoticeTxt/>
-            </NoticeThumbnailStyle>
+            <PostThumbnailStyle>
+                    <PostThumbImg/>
+                    <PostThumbTxt/>
+            </PostThumbnailStyle>
         </Link>
         </PostLinkStyle>
     );
@@ -28,7 +27,7 @@ const PostLinkStyle = styled.div`
         text-decoration: none
     };
 `
-const NoticeThumbnailStyle = styled.div`
+const PostThumbnailStyle = styled.div`
     display: flex;
     flex-direction: column;
     margin-bottom : 50px;
@@ -41,4 +40,4 @@ const NoticeThumbnailStyle = styled.div`
 
 
 
-export default NoticeThumbnail;
+export default PostThumbnail;
