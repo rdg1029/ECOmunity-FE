@@ -41,6 +41,7 @@ const MyPoint : React.FC = () => {
     const usrName = user?.displayName;
 
     onAuthStateChanged(auth, (user) => {
+        if (isLogin) return;
         if (user) {
             user?.getIdToken().then(token => {
                 request.post('/profile/getUserInfo', {
