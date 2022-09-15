@@ -2,18 +2,18 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import auth from "../auth";
 import PostWrite from "../components/PostWrite";
-import Notice from "./Notice";
+import NoticeLayout from "../components/NoticeLayout";
 
 const Post: React.FC = () => {
     const [isWriteMode, setWriteMode] = useState<boolean>(false);
 
     return (
         <PostGlobalStyle>
-            <h1>ECOmunity 활동 인증</h1>
+            <h1>나의 발자취 공유하기</h1>
             <button onClick={() => auth.currentUser ? setWriteMode(true) : window.alert('로그인이 필요한 서비스입니다.')}>작성</button>
             <PostWrite show={isWriteMode}/>
 
-            <Notice/>
+            <NoticeLayout/>
         </PostGlobalStyle>
     );
 }
