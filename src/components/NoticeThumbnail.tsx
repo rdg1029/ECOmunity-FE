@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 const NoticeThumbnail : React.FC = (props) => {
     return(
         <PostLinkStyle>
-        <Link to="/postview"> 
+        <Link to="/noticeview"> 
         {/**글마다 링크를 걸어야겠습니다. -> PostView.tsx */}
             <NoticeThumbnailStyle>
                     <NoticeImg/>
