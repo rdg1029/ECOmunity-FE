@@ -1,5 +1,6 @@
 import {initializeApp, FirebaseOptions } from 'firebase/app';
 import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, setPersistence, browserSessionPersistence } from 'firebase/auth'
+import request from '../util/RequestAPI';
 
 const firebaseConfig: FirebaseOptions = {
     apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -18,7 +19,34 @@ export default auth;
 export function signInGoogle() {
     setPersistence(auth, browserSessionPersistence).then(() => {
         signInWithPopup(auth, new GoogleAuthProvider()).then(userCredential => {
-            window.location.replace('/');
+            const user = userCredential.user;
+            const metaData = user.metadata;
+            if (metaData.creationTime !== metaData.lastSignInTime) {
+                window.location.replace('/');
+                return;
+            }
+            user.getIdToken().then(token => {
+                request.post('/profile/addUserInfo', {
+                    USER_UID: user.uid,
+                    USER_TOKEN: token,
+                    
+                    USER_INFO: {
+                      USER_EMAIL: user.email,
+                      USER_NAME: user.displayName,
+                      USER_PHONE: user.phoneNumber,
+                      USER_POINT: 0,
+                      USER_POSTS: []
+                    }
+                  }
+                )
+                .then(res => {
+                    if(res.data.RESULT_CODE != 200) return;
+                    window.location.replace('/');
+                })
+                .catch(err => {
+                    window.alert(err);
+                })
+            });
         });
     });
 }
