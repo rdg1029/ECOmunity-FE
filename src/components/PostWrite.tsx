@@ -56,6 +56,30 @@ const ContentTextArea = styled.textarea`
     font-size: 14px;
 `;
 
+const ButtonCancel = styled.button`
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    margin: 0 0.5rem 0 0;
+    border: none;
+    border-radius: 1rem;
+    cursor: pointer;
+    &:hover {
+        background: #E4E4E4;
+    }
+`;
+
+const ButtonSubmit = styled.button`
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    margin: 0 0.5rem 0 0;
+    border: none;
+    border-radius: 1rem;
+    background: #00AE68;
+    color: #fff;
+    cursor: pointer;
+    &:hover {
+        background: #206A5D;
+    }
+`;
+
 const PostWrite: React.FC<Props> = (props) => {
     const [image, setImage] = useState<string>();
     const [title, setTitle] = useState<string>();
@@ -144,8 +168,8 @@ const PostWrite: React.FC<Props> = (props) => {
             }
             footer={
                 <>
-                    <button onClick={() => window.location.reload()}>취소</button>
-                    <button onClick={onSubmit}>작성</button>
+                    <ButtonCancel onClick={() => window.location.reload()}>취소</ButtonCancel>
+                    <ButtonSubmit onClick={onSubmit}>작성</ButtonSubmit>
                 </>
             }
             width="60rem"/>
