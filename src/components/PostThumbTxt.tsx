@@ -10,7 +10,7 @@ const PostThumbTxt : React.FC = () => {
     return(
         <PostTxtGlobalStyle>
             <CategoryStyle>
-                <p>NEW</p>
+                <p>업사이클</p>
             </CategoryStyle>
             
             <PostTxtTitleStyle>
