@@ -75,7 +75,7 @@ const NoticeView : React.FC = () => {
 const NoticeBgImgStyle = styled.img`
     width: 2400px;
     height: 1600px;
-    position: absolute;
+    position: fixed;
     z-index: -100;
     filter: blur(3px);
 `;
@@ -85,6 +85,7 @@ const NoticeWrapper = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-bottom: 50px;
 `;
 const NoticeViewStyle = styled.div`
     width: 70%;
@@ -120,7 +121,7 @@ const NoticeContentsStyle = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    
+    margin-bottom: 30px;
 `;
 
 const NoticeTextContentStyle = styled.div`
