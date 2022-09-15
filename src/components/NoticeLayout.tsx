@@ -8,8 +8,10 @@ import auth from "../auth";
 import { API_POST_LIST } from "../util/ApiUtil";
 
 const NoticeLayout : React.FC = () => {
+    const [isLogin, setLogin] = useState<boolean>();
     const [postList, setPostList] = useState<API_POST_LIST>();
     onAuthStateChanged(auth, user => {
+        if (isLogin) return;
         if (user) {
             user.getIdToken().then(token => {
                 request.post('/board/getPostList', {
@@ -31,9 +33,12 @@ const NoticeLayout : React.FC = () => {
                     window.alert('게시글을 불러올 수 없습니다!');
                 });
             });
+            setLogin(true);
             return;
         }
+        setLogin(false);
     });
+
     return(
         <NoticeGlobalStyle>
             <NoticeTitle/> {/**타이틀 컴포 */}
