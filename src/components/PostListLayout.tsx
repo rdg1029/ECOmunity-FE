@@ -4,10 +4,40 @@ import auth from "../auth";
 import PostTitle from "./PostTitle";
 import PostThumbnail from "./PostThumbnail";
 import PostWrite from "./PostWrite";
+import { API_POST_LIST } from "../util/ApiUtil";
+import { onAuthStateChanged } from "firebase/auth";
+import request from "../util/RequestAPI";
 
 const PostListLayout : React.FC = () => {
-
+    const [isLogin, setLogin] = useState<boolean>();
+    const [postList, setPostList] = useState<API_POST_LIST>();
     const [isWriteMode, setWriteMode] = useState<boolean>(false);
+    onAuthStateChanged(auth, user => {
+        if (isLogin) return;
+        if (user) {
+            user.getIdToken().then(token => {
+                request.post('/board/getPostList', {
+                    USER_UID: user.uid,
+                    USER_TOKEN: token,
+                    POST_IS_NOTICE: false,
+                })
+                .then(res => {
+                    if (res.data.RESULT_CODE == 200) {
+                        setPostList(res.data.RESULT_DATA);
+                        return;
+                    }
+                    window.alert('게시글을 불러올 수 없습니다!');
+                })
+                .catch(err => {
+                    console.log(err)
+                    window.alert('게시글을 불러올 수 없습니다!');
+                });
+            });
+            setLogin(true);
+            return;
+        }
+        setLogin(false);
+    });
     return(
         <PostLayoutGlobalStyle>
             <TitleAndButtonStyle>
@@ -16,12 +46,11 @@ const PostListLayout : React.FC = () => {
             </TitleAndButtonStyle>
             <PostWrite show={isWriteMode}/>
                 <PostThumbnailStyle>
-                    <PostThumbnail/>{/**썸넬 6개 넣어야 함. */}
-                    <PostThumbnail/>
-                    <PostThumbnail/>
-                    <PostThumbnail/>
-                    <PostThumbnail/>
-                    <PostThumbnail/>
+                    {postList ?
+                    postList.POST_LIST.map(item => <PostThumbnail data={item}/>)
+                    :
+                    <h1>불러오는 중...</h1>
+                    }
                 </PostThumbnailStyle>
         </PostLayoutGlobalStyle>
     );
