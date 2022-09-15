@@ -2,10 +2,12 @@ import React from "react";
 import styled from "styled-components";
 
 const testImgSrc = "http://newsteacher.chosun.com/site/data/img_dir/2019/08/29/2019082900396_0.jpg";
+const bgImgSrc = "https://images.pexels.com/photos/1384908/pexels-photo-1384908.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
 
 const NoticeView : React.FC = () => {
     return(
         <PostWrapper>
+            <PostingBgImgStyle src={bgImgSrc}/>
         <PostViewStyle>
             <TitleStyle>
                 여기는 공지가 들어갈 곳입니다. 가마우지님
@@ -41,6 +43,14 @@ const NoticeView : React.FC = () => {
     );
 };
 
+const PostingBgImgStyle = styled.img`
+    width: 2400px;
+    height: 1600px;
+    position: absolute;
+    z-index: -100;
+    filter: blur(3px);
+`;
+
 const PostWrapper = styled.div`
     display: flex;
     flex-direction: column;
@@ -54,6 +64,8 @@ const PostViewStyle = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border-radius: 1%;
+    background-color: rgba( 255, 255, 255, 0.6 );
 `;
 
 
