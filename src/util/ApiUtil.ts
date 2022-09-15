@@ -23,7 +23,8 @@ export interface API_POST_LIST_ITEM {
     POST_DATE: string,
     POST_ID: string,
     POST_RECOMMEND: number,
-    POST_TITLE: string
+    POST_TITLE: string,
+    POST_IMAGE: string
 }
 
 export interface API_USER_INFO {
