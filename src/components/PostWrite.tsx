@@ -19,11 +19,10 @@ const PreviewImage = styled.img`
 `;
 
 const UploadImage = styled.label`
-    width: 150px;
-    height: 30px;
+    padding: 0.5rem 2rem 0.5rem 2rem;
     margin: 1rem;
     background: #00AE68;
-    border-radius: 10px;
+    border-radius: 1rem;
     font-weight: 500;
     color: #fff;
     cursor: pointer;
