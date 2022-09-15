@@ -6,9 +6,9 @@ const bgImgSrc = "https://images.pexels.com/photos/1384908/pexels-photo-1384908.
 
 const NoticeView : React.FC = () => {
     return(
-        <PostWrapper>
-            <PostingBgImgStyle src={bgImgSrc}/>
-        <PostViewStyle>
+        <NoticeWrapper>
+            <NoticeBgImgStyle src={bgImgSrc}/>
+        <NoticeViewStyle>
             <TitleStyle>
                 여기는 공지가 들어갈 곳입니다. 가마우지님
             </TitleStyle>
@@ -17,10 +17,10 @@ const NoticeView : React.FC = () => {
                 <p>2022.09.14 - 김 영 현 작성</p>
             </WriterAndDateStyle>
 
-            <PostContentsStyle>
-                <PostImageStyle src={testImgSrc}/>
+            <NoticeContentsStyle>
+                <NoticeImageStyle src={testImgSrc}/>
 
-                <PostTextContentStyle>
+                <NoticeTextContentStyle>
                     모든 국민은 보건에 관하여 국가의 보호를 받는다. 
                     저작자·발명가·과학기술자와 예술가의 권리는 법률로써 보호한다.
                     공개하지 아니한 회의내용의 공표에 관하여는 법률이 정하는 바에 의한다.
@@ -34,16 +34,16 @@ const NoticeView : React.FC = () => {
                     제3항의 승인을 얻지 못한 때에는 그 처분 또는 명령은 그때부터 효력을 상실한다. 이 경우 그 명령에 의하여 개정 또는 폐지되었던 법률은 그 명령이 승인을 얻지 못한 때부터 당연히 효력을 회복한다. 
                     통신·방송의 시설기준과 신문의 기능을 보장하기 위하여 필요한 사항은 법률로 정한다. 헌법재판소의 조직과 운영 기타 필요한 사항은 법률로 정한다.
                      국채를 모집하거나 예산외에 국가의 부담이 될 계약을 체결하려 할 때에는 정부는 미리 국회의 의결을 얻어야 한다. 제2항의 재판관중 3인은 국회에서 선출하는 자를, 3인은 대법원장이 지명하는 자를 임명한다.
-                </PostTextContentStyle>
+                </NoticeTextContentStyle>
 
-            </PostContentsStyle>
+            </NoticeContentsStyle>
 
-        </PostViewStyle>
-        </PostWrapper>
+        </NoticeViewStyle>
+        </NoticeWrapper>
     );
 };
 
-const PostingBgImgStyle = styled.img`
+const NoticeBgImgStyle = styled.img`
     width: 2400px;
     height: 1600px;
     position: absolute;
@@ -51,13 +51,13 @@ const PostingBgImgStyle = styled.img`
     filter: blur(3px);
 `;
 
-const PostWrapper = styled.div`
+const NoticeWrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 `;
-const PostViewStyle = styled.div`
+const NoticeViewStyle = styled.div`
     width: 70%;
     margin-top: 30px;
     display: flex;
@@ -86,7 +86,7 @@ const WriterAndDateStyle = styled.div`
     
 `;
 
-const PostContentsStyle = styled.div`
+const NoticeContentsStyle = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -94,7 +94,7 @@ const PostContentsStyle = styled.div`
     
 `;
 
-const PostTextContentStyle = styled.div`
+const NoticeTextContentStyle = styled.div`
     width: 70%;
     margin-top: 50px;
     display: flex;
@@ -105,7 +105,7 @@ const PostTextContentStyle = styled.div`
     font-size: 15pt;
 `;
 
-const PostImageStyle = styled.img`
+const NoticeImageStyle = styled.img`
     width: 70%;
     height: 50%;
     
