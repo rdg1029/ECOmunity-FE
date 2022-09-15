@@ -29,7 +29,7 @@ const ModalStyle = styled.div<{show: boolean}>`
 const ModalSectionStyle = styled.section<{width: string}>`
     width: 90%;
     max-width: ${props => props.width};
-    max-height: 90%;
+    max-height: 80%;
     margin: 0 auto;
     border-radius: 1rem;
     background-color: #fff;
@@ -44,7 +44,7 @@ const ModalHeaderStyle = styled.header`
 `;
 
 const ModalMainStyle = styled.main`
-    max-height: 36rem;
+    max-height: 30rem;
     padding: 16px;
     border-bottom: 1px solid #dee2e6;
     border-top: 1px solid #dee2e6;
