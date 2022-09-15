@@ -8,7 +8,7 @@ import { API_POST_LIST_ITEM } from "../util/ApiUtil";
 const NoticeThumbnail : React.FC<{data: API_POST_LIST_ITEM}> = (props) => {
     return(
         <PostLinkStyle>
-        <Link to={`/noticeview?id${props.data.POST_ID}`}> 
+        <Link to={`/noticeview?id=${props.data.POST_ID}`}> 
             <NoticeThumbnailStyle>
                     <NoticeImg src={props.data.POST_IMAGE}/>
                     <NoticeTxt 
