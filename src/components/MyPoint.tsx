@@ -43,7 +43,7 @@ const MyPoint : React.FC = () => {
     onAuthStateChanged(auth, (user) => {
         if (user) {
             user?.getIdToken().then(token => {
-                request.post('/getUserInfo', {
+                request.post('/profile/getUserInfo', {
                     USER_UID: user.uid,
                     USER_TOKEN: token,
                 })
