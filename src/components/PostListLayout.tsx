@@ -37,8 +37,10 @@ const PostLayoutGlobalStyle = styled.div`
 `;
 
 const TitleAndButtonStyle = styled.div`
+    width: 100%;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
 
     button{
         background: #00AE68;
@@ -47,7 +49,7 @@ const TitleAndButtonStyle = styled.div`
         width: 200px;
         height: 50px;
         padding: 0;
-        margin: 30px 20px 10px 900px;
+        margin-right: 90px;
         font-weight: 600;
         text-align: center;
         line-height: 50px;
