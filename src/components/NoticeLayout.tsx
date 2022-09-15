@@ -20,9 +20,7 @@ const NoticeLayout : React.FC = () => {
                     POST_IS_NOTICE: true,
                 })
                 .then(res => {
-                    console.log(res);
                     if (res.data.RESULT_CODE == 200) {
-                        console.log(res.data.RESULT_DATA);
                         setPostList(res.data.RESULT_DATA);
                         return;
                     }

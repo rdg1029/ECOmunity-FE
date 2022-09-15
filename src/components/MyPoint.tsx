@@ -50,8 +50,7 @@ const MyPoint : React.FC = () => {
                 })
                 .then(res => {
                     setLogin(true);
-                    setPoint(res.data.RESULT_DATA.USER_POINT)
-                    console.log(res);
+                    setPoint(res.data.RESULT_DATA.USER_POINT);
                 })
                 .catch(err => {
                     console.log(err);
