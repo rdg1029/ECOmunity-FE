@@ -22,17 +22,17 @@ const UploadImage = styled.label`
     width: 150px;
     height: 30px;
     margin: 1rem;
-    background: #fff;
-    border: 1px solid rgb(77,77,77);
+    background: #00AE68;
     border-radius: 10px;
     font-weight: 500;
+    color: #fff;
     cursor: pointer;
     display: flex;
     align-self: center;
     align-items: center;
     justify-content: center;
     &:hover {
-        background: rgb(77,77,77);
+        background: #206A5D;
         color: #fff;
     }
 `;
