@@ -39,11 +39,7 @@ const WriterDateStyle = styled.div`
     font-family: 'Pretendard-Bold';
     font-weight: bold;
     font-size: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: flex-end;
-    margin: 0 0 0 340px;
+    margin: 0 10px 0 auto;
     padding-bottom: 10px;
 
     p{
