@@ -1,9 +1,10 @@
 import React from "react";
-import NoticeLayout from "./NoticeLayout";
+import PostListLayout from "./PostListLayout";
 
 const PostList : React.FC = () => {
     return(
-        <NoticeLayout/>
+        <></>
+
     );
 };
 

@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const postCount = 0;
+const postCount = 6;
 
 const PostTitle: React.FC = () => {
     

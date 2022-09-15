@@ -9,7 +9,7 @@ const PostThumbTxt : React.FC = () => {
             </CategoryStyle>
             
             <PostTxtTitleStyle>
-                <p>가마우지가 먹이를 먹는 것은 환경을 위한 길인가?</p>
+                <p>햇1반 먹고난 용기 그냥 버리고 계신가요?</p>
             </PostTxtTitleStyle>
             
             <PostPreviewStyle>
@@ -20,8 +20,8 @@ const PostThumbTxt : React.FC = () => {
             </PostPreviewStyle>
 
             <WriterDateStyle>
-                <p>김 영 현</p>
-                <p>22.09.14</p>
+                <p>김 현 우</p>
+                <p>22.09.15</p>
             </WriterDateStyle>
             
         </PostTxtGlobalStyle>
