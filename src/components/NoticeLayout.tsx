@@ -13,10 +13,7 @@ const NoticeLayout : React.FC = () => {
                     <NoticeThumbnail/>{/**썸넬 6개 넣어야 함. */}
                     <NoticeThumbnail/>
                     <NoticeThumbnail/>
-                </NoticeThumbnailStyle>
-
-                <NoticeThumbnailStyle>
-                    <NoticeThumbnail/>{/**썸넬 6개 넣어야 함. */}
+                    <NoticeThumbnail/>
                     <NoticeThumbnail/>
                     <NoticeThumbnail/>
                 </NoticeThumbnailStyle>
@@ -31,16 +28,15 @@ const NoticeGlobalStyle = styled.div`
     margin-top: 40px;
     justify-content: flex-start;
     align-items: flex-start;
-;
-    
 `;
 /**공지사항 컴포넌트 전체에 대한 스타일 */
 
-
-
 const NoticeThumbnailStyle = styled.div`
     display: flex;
-    
-`
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+`;
 
 export default NoticeLayout;

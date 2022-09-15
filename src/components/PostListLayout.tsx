@@ -19,10 +19,7 @@ const PostListLayout : React.FC = () => {
                     <PostThumbnail/>{/**썸넬 6개 넣어야 함. */}
                     <PostThumbnail/>
                     <PostThumbnail/>
-                </PostThumbnailStyle>
-
-                <PostThumbnailStyle>
-                    <PostThumbnail/>{/**썸넬 6개 넣어야 함. */}
+                    <PostThumbnail/>
                     <PostThumbnail/>
                     <PostThumbnail/>
                 </PostThumbnailStyle>
@@ -40,8 +37,10 @@ const PostLayoutGlobalStyle = styled.div`
 `;
 
 const TitleAndButtonStyle = styled.div`
+    width: 100%;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
 
     button{
         background: #00AE68;
@@ -50,7 +49,7 @@ const TitleAndButtonStyle = styled.div`
         width: 200px;
         height: 50px;
         padding: 0;
-        margin: 30px 20px 10px 900px;
+        margin-right: 90px;
         font-weight: 600;
         text-align: center;
         line-height: 50px;
@@ -66,12 +65,15 @@ const TitleAndButtonStyle = styled.div`
     button:hover{
         background: #21825B;
     }
-`
+`;
 
 
 const PostThumbnailStyle = styled.div`
     display: flex;
-    
-`
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+`;
 
 export default PostListLayout;
