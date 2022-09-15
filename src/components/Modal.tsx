@@ -29,11 +29,10 @@ const ModalStyle = styled.div<{show: boolean}>`
 const ModalSectionStyle = styled.section<{width: string}>`
     width: 90%;
     max-width: ${props => props.width};
-    max-height: 80%;
     margin: 0 auto;
     border-radius: 1rem;
     background-color: #fff;
-    overflow: hidden;
+    overflow: scroll;
 `;
 
 const ModalHeaderStyle = styled.header`
