@@ -39,7 +39,9 @@ const PostThumbTxt : React.FC<Props> = (props) => {
 };
 
 const OtherContetnsStyle = styled.div`
+    width: 100%;
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
 `;
 
@@ -64,11 +66,7 @@ const WriterDateStyle = styled.div`
     font-family: 'Pretendard-Bold';
     font-weight: bold;
     font-size: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: flex-end;
-    margin: 45px 0 0 260px;
+    margin-right: 20px;
     padding-bottom: 40px;
 
     p{
