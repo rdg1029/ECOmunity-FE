@@ -1,10 +1,8 @@
 import { onAuthStateChanged } from "firebase/auth";
-import { useSelector } from 'react-redux';
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import auth from "../auth";
-
-
+import request from "../util/RequestAPI";
 
 const MyPointLayoutStyle = styled.div`
     display: flex;
@@ -38,12 +36,26 @@ const MyPointTextLayoutStyle = styled.div`
 
 const MyPoint : React.FC = () => {
     const [isLogin, setLogin] = useState<boolean>();
+    const [point, setPoint] = useState<string>('0');
     const user = auth.currentUser?.providerData[0];
     const usrName = user?.displayName;
 
     onAuthStateChanged(auth, (user) => {
+        if (isLogin) return;
         if (user) {
-            setLogin(true);
+            user?.getIdToken().then(token => {
+                request.post('/profile/getUserInfo', {
+                    USER_UID: user.uid,
+                    USER_TOKEN: token,
+                })
+                .then(res => {
+                    setLogin(true);
+                    setPoint(res.data.RESULT_DATA.USER_POINT);
+                })
+                .catch(err => {
+                    console.log(err);
+                });
+            });
             return;
         }
         setLogin(false);
@@ -55,8 +67,7 @@ const MyPoint : React.FC = () => {
                     {isLogin ?
                     <>
                         <p>{usrName} 님의 Ecomunity 포인트</p>
-                            <h1> 0 점 </h1>
-                        <p>{'>'} Ecomunity 포인트 사용처 보기</p>
+                            <h1> {point} 점 </h1>
                     </>
                     :
                     <p>안녕하세요 이커뮤니티입니다.<br/> 로그인을 해주세요.</p>

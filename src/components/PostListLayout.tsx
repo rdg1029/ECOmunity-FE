@@ -4,24 +4,55 @@ import auth from "../auth";
 import PostTitle from "./PostTitle";
 import PostThumbnail from "./PostThumbnail";
 import PostWrite from "./PostWrite";
+import { API_POST_LIST } from "../util/ApiUtil";
+import { onAuthStateChanged } from "firebase/auth";
+import request from "../util/RequestAPI";
 
 const PostListLayout : React.FC = () => {
-
+    const [isLogin, setLogin] = useState<boolean>();
+    const [postList, setPostList] = useState<API_POST_LIST>();
     const [isWriteMode, setWriteMode] = useState<boolean>(false);
+    onAuthStateChanged(auth, user => {
+        if (isLogin) return;
+        if (user) {
+            user.getIdToken().then(token => {
+                request.post('/board/getPostList', {
+                    USER_UID: user.uid,
+                    USER_TOKEN: token,
+                    POST_IS_NOTICE: false,
+                })
+                .then(res => {
+                    if (res.data.RESULT_CODE == 200) {
+                        setPostList(res.data.RESULT_DATA);
+                        return;
+                    }
+                    window.alert('게시글을 불러올 수 없습니다!');
+                })
+                .catch(err => {
+                    console.log(err)
+                    window.alert('게시글을 불러올 수 없습니다!');
+                });
+            });
+            setLogin(true);
+            return;
+        }
+        setLogin(false);
+    });
     return(
         <PostLayoutGlobalStyle>
             <TitleAndButtonStyle>
-                <PostTitle/> {/**타이틀 컴포 */}
+                <PostTitle postCount={postList?.POST_COUNT as number}/> {/**타이틀 컴포 */}
                 <button onClick={() => auth.currentUser ? setWriteMode(true) : window.alert('로그인이 필요한 서비스입니다.')}>내 활동 인증</button>
             </TitleAndButtonStyle>
             <PostWrite show={isWriteMode}/>
                 <PostThumbnailStyle>
-                    <PostThumbnail/>{/**썸넬 6개 넣어야 함. */}
-                    <PostThumbnail/>
-                    <PostThumbnail/>
-                    <PostThumbnail/>
-                    <PostThumbnail/>
-                    <PostThumbnail/>
+                    {postList ?
+                    postList.POST_LIST.map(item => <PostThumbnail data={item}/>)
+                    : !isLogin ?
+                    <h1>로그인이 필요한 서비스입니다.</h1>
+                    :
+                    <h1>불러오는 중...</h1>
+                    }
                 </PostThumbnailStyle>
         </PostLayoutGlobalStyle>
     );
@@ -32,8 +63,8 @@ const PostLayoutGlobalStyle = styled.div`
     width: 100%;
     flex-flow: column;
     margin-top: 40px;
-    justify-content: flex-start;
-    align-items: flex-start;
+    justify-content: center;
+    align-items: center;
 `;
 
 const TitleAndButtonStyle = styled.div`

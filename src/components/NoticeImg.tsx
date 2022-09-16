@@ -3,10 +3,10 @@ import styled from "styled-components";
 
 const testImgSrc = "http://newsteacher.chosun.com/site/data/img_dir/2019/08/29/2019082900396_0.jpg";
 
-const NoticeImg : React.FC = (props) => {
+const NoticeImg : React.FC<{src: string}> = (props) => {
     return(
         <NoticeImgGlobalStyle>
-            <img src={`${testImgSrc}`}/>
+            <img src={props.src}/>
         </NoticeImgGlobalStyle>
     );
 

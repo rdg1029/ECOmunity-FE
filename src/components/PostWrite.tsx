@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import auth from "../auth";
 import Modal from "./Modal";
+import request from "../util/RequestAPI";
 
 interface Props {
     show: boolean;
@@ -33,6 +34,9 @@ const UploadImage = styled.label`
     &:hover {
         background: #206A5D;
         color: #fff;
+    }
+    &:disabled {
+        cursor: none;
     }
 `;
 
@@ -95,6 +99,10 @@ const PostWrite: React.FC<Props> = (props) => {
 
     const onImageChange: React.ChangeEventHandler<HTMLInputElement> = e => {
         const imgFile = e.currentTarget.files![0];
+        if (imgFile.size > 1040000) {
+            window.alert('1MB 이하의 이미지 파일을 업로드 해주세요!');
+            return;
+        }
         const reader = new FileReader();
         reader.readAsDataURL(imgFile);
         reader.onload = e => {
@@ -113,7 +121,7 @@ const PostWrite: React.FC<Props> = (props) => {
         }
     }
 
-    const onSubmit: React.MouseEventHandler<HTMLButtonElement> = e => {
+    const onSubmit = (e: React.BaseSyntheticEvent) => {
         if (!image) {
             alert('인증 사진 1장을 첨부해주세요!');
             return;
@@ -127,14 +135,40 @@ const PostWrite: React.FC<Props> = (props) => {
             return;
         }
         if (!window.confirm('게시글을 작성하시겠습니까?')) return;
-        auth.currentUser?.getIdToken().then(idToken => {
-            const postData = {
-                token: idToken,
-                img: image,
-                title: title,
-                content: content,
-            }
-            console.log(postData);
+        e.target.disabled = true;
+        e.target.innerText = "작성 중";
+        const user = auth.currentUser;
+        user?.getIdToken().then(token => {
+            request.post('/board/updatePost', {
+                USER_UID: user.uid,
+                USER_TOKEN: token,
+                POST_ID: Math.random().toString(36).substring(2,7),
+                POST_IS_NOTICE: false,
+                POST_DATA: {
+                  POST_AUTHOR: user.displayName,
+                  POST_CONTENT: content,
+                  POST_DATE: new Date().toLocaleDateString(),
+                  POST_IMAGE: image,
+                  POST_RECOMMEND: 0,
+                  POST_TITLE: title
+                }
+            })
+            .then(res => {
+                console.log(res);
+                if (res.data.RESULT_CODE == 200) {
+                    window.removeEventListener("beforeunload", onBeforeReload);
+                    window.removeEventListener("popstate", preventGoBack);
+                    window.location.reload();
+                    return;
+                }
+                e.target.disabled = false;
+                e.target.innerText = "작성"
+                window.alert('게시글을 작성할 수 없습니다!');
+            })
+            .catch(err => {
+                console.log(err);
+                window.alert('게시글을 작성할 수 없습니다!');
+            });
         });
     }
 
