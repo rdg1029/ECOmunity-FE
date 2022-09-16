@@ -99,6 +99,10 @@ const PostWrite: React.FC<Props> = (props) => {
 
     const onImageChange: React.ChangeEventHandler<HTMLInputElement> = e => {
         const imgFile = e.currentTarget.files![0];
+        if (imgFile.size > 1040000) {
+            window.alert('1MB 이하의 이미지 파일을 업로드 해주세요!');
+            return;
+        }
         const reader = new FileReader();
         reader.readAsDataURL(imgFile);
         reader.onload = e => {
