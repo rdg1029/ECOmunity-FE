@@ -133,7 +133,7 @@ const NoticeTextContentStyle = styled.div`
     justify-content: center;
     flex-wrap: wrap;
     font-size: 15pt;
-    white-space: pre-line;
+    white-space: pre;
 `;
 
 const NoticeImageStyle = styled.img`
