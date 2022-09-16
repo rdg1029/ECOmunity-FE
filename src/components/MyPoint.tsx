@@ -68,7 +68,6 @@ const MyPoint : React.FC = () => {
                     <>
                         <p>{usrName} 님의 Ecomunity 포인트</p>
                             <h1> {point} 점 </h1>
-                        <p>{'>'} Ecomunity 포인트 사용처 보기</p>
                     </>
                     :
                     <p>안녕하세요 이커뮤니티입니다.<br/> 로그인을 해주세요.</p>
