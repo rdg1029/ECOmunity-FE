@@ -14,7 +14,7 @@ const PostView : React.FC = () => {
     const params = new URLSearchParams(window.location.search);
     const [postData, setPostData] = useState<API_POST_DATA>();
     const [isLoaded, setLoaded] = useState<boolean>();
-    const [leafCnt, setLeafCnt] = useState(0);
+    const [recommend, setRecommend] = useState(0);
 
     onAuthStateChanged(auth, user => {
         if (isLoaded) return;
@@ -30,7 +30,7 @@ const PostView : React.FC = () => {
                     console.log(res);
                     if (res.data.RESULT_CODE == 200) {
                         setPostData(res.data.RESULT_DATA);
-                        setLeafCnt(res.data.RESULT_DATA.POST_RECOMMEND);
+                        setRecommend(res.data.RESULT_DATA.POST_RECOMMEND);
                         setLoaded(true);
                         return;
                     }
@@ -46,8 +46,26 @@ const PostView : React.FC = () => {
         setLoaded(false);
     });
 
-    const leafIncrese = () =>{
-        setLeafCnt(leafCnt + 1);
+    const recommendIncrese = () =>{
+        const user = auth.currentUser;
+        user?.getIdToken().then(token => {
+            request.post('/board/updateRecommend', {
+                USER_UID: user.uid,
+                USER_TOKEN: token,
+                POST_ID: params.get('id'),
+                POST_IS_NOTICE: false,
+                POST_RECOMMEND: Number(recommend) + 1,
+            })
+            .then(res => {
+                if (res.data.RESULT_CODE == 200) {
+                    setRecommend(recommend + 1);
+                    return;
+                }
+            })
+            .catch(err => {
+                console.log(err);
+            });
+        });
     };
 
     return(
@@ -62,9 +80,9 @@ const PostView : React.FC = () => {
                     <WriterAndDateStyle>
                         <p>{postData.POST_DATE} {postData.POST_AUTHOR}</p>
                     </WriterAndDateStyle>
-                    <LikeStyle onClick={leafIncrese}>
+                    <LikeStyle onClick={recommendIncrese}>
                         <FontAwesomeIcon icon={faLeaf} color="#14C38E" size="2x" />
-                        <p>{leafCnt}</p>
+                        <p>{recommend}</p>
                     </LikeStyle>
 
                     <PostContentsStyle>
