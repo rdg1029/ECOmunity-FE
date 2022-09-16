@@ -89,7 +89,7 @@ const PostView : React.FC = () => {
 const PostingBgImgStyle = styled.img`
     width: 2400px;
     height: 1600px;
-    position: absolute;
+    position: fixed;
     z-index: -100;
     filter: blur(3px);
 `;
@@ -136,7 +136,7 @@ const PostContentsStyle = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    
+    margin-bottom: 30px;
 `;
 
 const PostTextContentStyle = styled.div`
