@@ -7,7 +7,7 @@ const NoticeTitle: React.FC<{postCount: number}> = (props) => {
         <>
         <NoticeTitleStyle>
             <NoticePStyle>오늘의 환경 보호 캠페인</NoticePStyle>
-            <NoticeSubPStyle>{props.postCount} 개의 기업이 함께하고 있어요.</NoticeSubPStyle>
+            <NoticeSubPStyle>{props.postCount} 개의 캠페인이 여러분을 기다리고 있어요.</NoticeSubPStyle>
         </NoticeTitleStyle>
         </>
     );
