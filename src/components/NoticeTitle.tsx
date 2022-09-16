@@ -1,15 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 
-const companyNum = 0;
-
-const NoticeTitle: React.FC = () => {
+const NoticeTitle: React.FC<{postCount: number}> = (props) => {
     
     return(
         <>
         <NoticeTitleStyle>
             <NoticePStyle>오늘의 환경 보호 캠페인</NoticePStyle>
-            <NoticeSubPStyle>{companyNum} 개의 기업이 함께하고 있어요.</NoticeSubPStyle>
+            <NoticeSubPStyle>{props.postCount} 개의 기업이 함께하고 있어요.</NoticeSubPStyle>
         </NoticeTitleStyle>
         </>
     );
