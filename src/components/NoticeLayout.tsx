@@ -39,7 +39,7 @@ const NoticeLayout : React.FC = () => {
 
     return(
         <NoticeGlobalStyle>
-            <NoticeTitle/> {/**타이틀 컴포 */}
+            <NoticeTitle postCount={postList?.POST_COUNT as number}/> {/**타이틀 컴포 */}
                 <NoticeThumbnailStyle>
                     {postList ?
                     postList.POST_LIST.map(item => <NoticeThumbnail data={item}/>)
