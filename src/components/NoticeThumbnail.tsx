@@ -2,18 +2,19 @@ import React from "react";
 import styled from "styled-components";
 import NoticeImg from "./NoticeImg";
 import NoticeTxt from "./NoticeTxt";
-import PostView from "../pages/PostView";
 import { Link } from "react-router-dom";
+import { API_POST_LIST_ITEM } from "../util/ApiUtil";
 
-
-const NoticeThumbnail : React.FC = (props) => {
+const NoticeThumbnail : React.FC<{data: API_POST_LIST_ITEM}> = (props) => {
     return(
         <PostLinkStyle>
-        <Link to="/noticeview"> 
-        {/**글마다 링크를 걸어야겠습니다. -> PostView.tsx */}
+        <Link to={`/noticeview?id=${props.data.POST_ID}`}> 
             <NoticeThumbnailStyle>
-                    <NoticeImg/>
-                    <NoticeTxt/>
+                    <NoticeImg src={props.data.POST_IMAGE}/>
+                    <NoticeTxt 
+                        author={props.data.POST_AUTHOR}
+                        date={props.data.POST_DATE}
+                        title={props.data.POST_TITLE}/>
             </NoticeThumbnailStyle>
         </Link>
         </PostLinkStyle>

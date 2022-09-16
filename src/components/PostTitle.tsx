@@ -1,15 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 
-const postCount = 6;
-
-const PostTitle: React.FC = () => {
+const PostTitle: React.FC<{postCount: number}> = (props) => {
     
     return(
         <>
         <NoticeTitleStyle>
             <NoticePStyle>ECOmunity</NoticePStyle>
-            <NoticeSubPStyle>{postCount} 개의 푸른 발자취를 확인해보세요.</NoticeSubPStyle>
+            <NoticeSubPStyle>{props.postCount} 개의 푸른 발자취를 확인해보세요.</NoticeSubPStyle>
         </NoticeTitleStyle>
         </>
     );

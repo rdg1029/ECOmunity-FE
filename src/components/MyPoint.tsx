@@ -1,38 +1,8 @@
 import { onAuthStateChanged } from "firebase/auth";
-import { useSelector } from 'react-redux';
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import auth from "../auth";
-
-const MyPoint : React.FC = () => {
-    const [isLogin, setLogin] = useState<boolean>();
-    const user = auth.currentUser?.providerData[0];
-    const usrName = user?.displayName;
-
-    onAuthStateChanged(auth, (user) => {
-        if (user) {
-            setLogin(true);
-            return;
-        }
-        setLogin(false);
-    });
-    return(
-        <>
-            <MyPointLayoutStyle>
-                <MyPointTextLayoutStyle>
-                    {isLogin ?
-                    <>
-                        <p>{usrName} 님의 Ecomunity 포인트</p>
-                            <h1> 0 점 </h1>
-                    </>
-                    :
-                    <p>안녕하세요 이커뮤니티입니다.<br/> 로그인을 해주세요.</p>
-                    }
-                </MyPointTextLayoutStyle>
-            </MyPointLayoutStyle>
-        </>
-    );
-};
+import request from "../util/RequestAPI";
 
 const MyPointLayoutStyle = styled.div`
     display: flex;
@@ -40,7 +10,6 @@ const MyPointLayoutStyle = styled.div`
     align-items: flex-start;
     color : white;
     height: 280px;
-    margin-top: 60px;
     margin-left: 300px;
 
     
@@ -62,7 +31,51 @@ const MyPointTextLayoutStyle = styled.div`
         @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.5/dist/web/static/pretendard.css");
         font-family: 'Pretendard-Bold';
         font-size: 80px;
-        
     }
 `;
+
+const MyPoint : React.FC = () => {
+    const [isLogin, setLogin] = useState<boolean>();
+    const [point, setPoint] = useState<string>('0');
+    const user = auth.currentUser?.providerData[0];
+    const usrName = user?.displayName;
+
+    onAuthStateChanged(auth, (user) => {
+        if (isLogin) return;
+        if (user) {
+            user?.getIdToken().then(token => {
+                request.post('/profile/getUserInfo', {
+                    USER_UID: user.uid,
+                    USER_TOKEN: token,
+                })
+                .then(res => {
+                    setLogin(true);
+                    setPoint(res.data.RESULT_DATA.USER_POINT);
+                })
+                .catch(err => {
+                    console.log(err);
+                });
+            });
+            return;
+        }
+        setLogin(false);
+    });
+    return(
+        <>
+            <MyPointLayoutStyle>
+                <MyPointTextLayoutStyle>
+                    {isLogin ?
+                    <>
+                        <p>{usrName} 님의 Ecomunity 포인트</p>
+                            <h1> {point} 점 </h1>
+                    </>
+                    :
+                    <p>안녕하세요 이커뮤니티입니다.<br/> 로그인을 해주세요.</p>
+                    }
+                </MyPointTextLayoutStyle>
+            </MyPointLayoutStyle>
+        </>
+    );
+}
+
 export default MyPoint;

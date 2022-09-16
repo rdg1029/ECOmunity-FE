@@ -3,10 +3,10 @@ import styled from "styled-components";
 
 const testImgSrc = "https://img.khan.co.kr/news/2022/01/11/2022011101001309200110521.jpg";
 
-const PostThumbImg : React.FC = (props) => {
+const PostThumbImg : React.FC<{src: string}> = (props) => {
     return(
         <PostThumbImgGlobalStyle>
-            <img src={`${testImgSrc}`}/>
+            <img src={props.src}/>
         </PostThumbImgGlobalStyle>
     );
 
