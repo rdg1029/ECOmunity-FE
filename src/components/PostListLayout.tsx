@@ -41,7 +41,7 @@ const PostListLayout : React.FC = () => {
     return(
         <PostLayoutGlobalStyle>
             <TitleAndButtonStyle>
-                <PostTitle/> {/**타이틀 컴포 */}
+                <PostTitle postCount={postList?.POST_COUNT as number}/> {/**타이틀 컴포 */}
                 <button onClick={() => auth.currentUser ? setWriteMode(true) : window.alert('로그인이 필요한 서비스입니다.')}>내 활동 인증</button>
             </TitleAndButtonStyle>
             <PostWrite show={isWriteMode}/>
