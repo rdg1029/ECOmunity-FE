@@ -48,6 +48,8 @@ const PostListLayout : React.FC = () => {
                 <PostThumbnailStyle>
                     {postList ?
                     postList.POST_LIST.map(item => <PostThumbnail data={item}/>)
+                    : !isLogin ?
+                    <h1>로그인이 필요한 서비스입니다.</h1>
                     :
                     <h1>불러오는 중...</h1>
                     }
