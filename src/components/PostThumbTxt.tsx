@@ -41,8 +41,11 @@ const PostThumbTxt : React.FC = () => {
 };
 
 const OtherContetnsStyle = styled.div`
+    width: 100%;
     display: flex;
-    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 20px;
 `;
 
 
@@ -58,8 +61,8 @@ const LikeStyle = styled.div`
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    margin-left: 20px;
-    margin-top: 0px;
+    position: absolute;
+    margin-left: 25px;
 
     p{
         font-size: 15pt;
@@ -72,14 +75,13 @@ const LikeStyle = styled.div`
 const WriterDateStyle = styled.div`
     @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.5/dist/web/static/pretendard.css");
     font-family: 'Pretendard-Bold';
-    font-weight: bold;
     font-size: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-self: flex-end;
     align-items: flex-end;
-    margin: 45px 0 0 260px;
-    padding-bottom: 40px;
+    margin-left: 350px;
+
 
     p{
         margin: 0;
