@@ -61,8 +61,8 @@ const PostLayoutGlobalStyle = styled.div`
     width: 100%;
     flex-flow: column;
     margin-top: 40px;
-    justify-content: flex-start;
-    align-items: flex-start;
+    justify-content: center;
+    align-items: center;
 `;
 
 const TitleAndButtonStyle = styled.div`
