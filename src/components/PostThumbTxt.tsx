@@ -43,8 +43,6 @@ const OtherContetnsStyle = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
 `;
 
 const LikeStyle = styled.div`
@@ -52,8 +50,8 @@ const LikeStyle = styled.div`
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    position: absolute;
-    margin-left: 25px;
+    margin-left: 20px;
+    margin-top: 0px;
 
     p{
         font-size: 15pt;
@@ -66,6 +64,7 @@ const LikeStyle = styled.div`
 const WriterDateStyle = styled.div`
     @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.5/dist/web/static/pretendard.css");
     font-family: 'Pretendard-Bold';
+    font-weight: bold;
     font-size: 20px;
     margin-right: 20px;
     padding-bottom: 40px;
